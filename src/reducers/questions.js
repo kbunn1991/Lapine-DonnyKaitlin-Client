@@ -6,15 +6,17 @@ import {
 } from '../actions/questions';
 
 const initialState = {
-    questions: '',
+    questions:{},
+    prevQuestion:{},
     error: null
 };
 
 export default function reducer(state = initialState, action) {
-    console.log(action);
+    // console.log('FETCH ACTION ',action.questions.previous);
     if (action.type === FETCH_QUESTIONS_SUCCESS) {
         return Object.assign({}, state, {
-            questions: action.questions,
+            questions: action.questions.current,
+            prevQuestion: action.questions.previous,
             error: null
         });
     } else if (action.type === FETCH_QUESTIONS_ERROR) {
@@ -23,7 +25,8 @@ export default function reducer(state = initialState, action) {
         });
     } else if (action.type === MAKE_GUESS_SUCCESS) {
         return Object.assign({}, state, {
-            questions: action.questions,
+            questions: action.questions.current,
+            prevQuestion: action.questions.previous,
             error: null
         })
     } else if (action.type === MAKE_GUESS_ERROR) {

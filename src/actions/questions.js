@@ -44,6 +44,7 @@ export const makeGuessError = error => ({
 })
 
 export const makeGuess = (guess) => (dispatch, getState) => {
+    console.log('MAKE GUESS ACTION',guess);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'POST',
@@ -51,9 +52,9 @@ export const makeGuess = (guess) => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`,
             'content-type': 'application/json'
         },
-        body: {
-            guess
-        }
+        body: 
+           JSON.stringify({guess:guess})
+        
     })
     .then(res => res.json())
     .then((guess) => dispatch(makeGuessSuccess(guess)))

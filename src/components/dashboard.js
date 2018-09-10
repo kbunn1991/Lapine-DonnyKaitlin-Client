@@ -2,18 +2,25 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchQuestions, makeGuess} from '../actions/questions';
+import GuessForm from './guess-form';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchQuestions());
     }
+
+    onSubmit(values) {
+        console.log('values',values)
+        return  this.props.dispatch(makeGuess(values.guess));
+    }
     
 
     render() {
         let lapineWord;
-        if (this.props.questions) {
-            console.log('The question is', this.props.questions.lapine);
-            lapineWord = this.props.questions.lapine;
+        if (this.props.currentQuestion && this.props.prevQuestion) {
+            console.log('The question is', this.props.currentQuestion.lapine);
+            console.log('Prev Word',this.props.prevQuestion.lapine );
+            lapineWord = this.props.currentQuestion.lapine;
         }
         return (
             <div className="dashboard">
@@ -24,13 +31,7 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-questions">
                     <h3>{lapineWord}</h3>
 
-                    <form onSubmit={(e) => {
-                        e.preventDefault();
-                        this.props.dispatch(makeGuess())
-                    }}>
-                        <input type="text"></input>
-                        <button type="submit">Submit</button>
-                    </form>
+                  <GuessForm/>
 
                 </div>
             </div>
@@ -42,7 +43,8 @@ const mapStateToProps = state => {
     const {currentUser} = state.auth;
     return {
         username: state.auth.currentUser.username,
-        questions: state.questions.questions
+        currentQuestion: state.questions.questions,
+        prevQuestion: state.questions.prevQuestion
     };
 };
 
