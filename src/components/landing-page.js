@@ -13,7 +13,9 @@ export function LandingPage(props) {
     return (
         <div className="home">
             <h2>Learn Lapine / Bunny Babbel</h2>
-            <h5>A brief description of the app here.</h5>
+            <h5>Lapine is a fictional language created by author Richard Adams for his 1972 novel Watership Down, where it is spoken by rabbit characters. 
+                Now you can learn to speak to the bunnies too!
+            </h5>
             <LoginForm />
             <Link to="/register">Register</Link>
         </div>
