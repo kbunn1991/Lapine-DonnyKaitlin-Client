@@ -8,6 +8,7 @@ import {
 const initialState = {
     questions:{},
     prevQuestion:{},
+    showFeedback:false,
     error: null
 };
 
@@ -25,8 +26,9 @@ export default function reducer(state = initialState, action) {
         });
     } else if (action.type === MAKE_GUESS_SUCCESS) {
         return Object.assign({}, state, {
-            questions: action.questions.current,
-            prevQuestion: action.questions.previous,
+            // questions: action.questions.current,
+            // prevQuestion: action.questions.previous,
+            showFeedback:true,
             error: null
         })
     } else if (action.type === MAKE_GUESS_ERROR) {

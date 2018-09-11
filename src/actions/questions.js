@@ -31,6 +31,8 @@ export const fetchQuestions = () => (dispatch, getState) => {
         });
 };
 
+
+
 export const MAKE_GUESS_SUCCESS = 'MAKE_GUESS_SUCCESS';
 export const makeGuessSuccess = guess => ({
     type: MAKE_GUESS_SUCCESS,
@@ -56,9 +58,11 @@ export const makeGuess = (guess) => (dispatch, getState) => {
            JSON.stringify({guess:guess})
         
     })
+    // .then((res)=>console.log('makeGuess response',res))
     .then(res => res.json())
     .then((guess) => dispatch(makeGuessSuccess(guess)))
     .catch(err => {
+        console.log('makeguessError',err);
         dispatch(makeGuessError(err));
     });
 }
