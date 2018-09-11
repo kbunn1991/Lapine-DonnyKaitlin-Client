@@ -6,7 +6,7 @@ import {
 } from '../actions/questions';
 
 const initialState = {
-    questions:{},
+    questions:'',
     prevQuestion:{},
     showFeedback:false,
     showGuessBox: true,
@@ -14,20 +14,22 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-    // console.log('FETCH ACTION ',action.questions.previous);
     if (action.type === FETCH_QUESTIONS_SUCCESS) {
+        console.log('IT WAS SUCCESSFUL', action);
         return Object.assign({}, state, {
-            questions: action.questions.current,
-            prevQuestion: action.questions.previous,
+            questions: action.questions,
+            // prevQuestion: action.questions.previous,
             showFeedback:false,
             showGuessBox: true,
             error: null
         });
     } else if (action.type === FETCH_QUESTIONS_ERROR) {
+        console.log('IT WAS AN ERROR', action);
         return Object.assign({}, state, {
             error: action.error
         });
     } else if (action.type === MAKE_GUESS_SUCCESS) {
+        console.log('THE GUESS WAS SUCCESSFUL');
         return Object.assign({}, state, {
             // questions: action.questions.current,
             // prevQuestion: action.questions.previous,
@@ -36,6 +38,7 @@ export default function reducer(state = initialState, action) {
             error: null
         })
     } else if (action.type === MAKE_GUESS_ERROR) {
+        console.log('THE GUESS WAS AN ERROR');
         return Object.assign({}, state, {
             error: action.error
         });    

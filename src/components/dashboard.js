@@ -19,12 +19,13 @@ export class Dashboard extends React.Component {
 
     render() {
         let lapineWord;
-        if (this.props.currentQuestion && this.props.prevQuestion) {
-            console.log('The question is', this.props.currentQuestion.lapine);
-            console.log('showFeedback value',this.props.showFeedback);
-            console.log('show guess box value', this.props.showGuessBox);
-            console.log('Prev Word',this.props.prevQuestion.lapine );
-            lapineWord = this.props.currentQuestion.lapine;
+        if (this.props.currentQuestion) {
+            // console.log('The question is', this.props.currentQuestion.lapine);
+            // console.log('showFeedback value',this.props.showFeedback);
+            // console.log('show guess box value', this.props.showGuessBox);
+            // console.log('Prev Word',this.props.prevQuestion.lapine );
+            lapineWord = this.props.currentQuestion;
+            console.log(lapineWord);
         }
         let feedback;
         if (this.props.showFeedback) {
@@ -49,6 +50,7 @@ export class Dashboard extends React.Component {
                 </div>
                
                 <div className="dashboard-questions">
+                    {/* only pass the lapine word through redux, not the object, pull from array instead of LL */}
                     <h3>{lapineWord}</h3>
             
                   {guessBox}

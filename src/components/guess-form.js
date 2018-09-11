@@ -1,3 +1,5 @@
+// error validation
+
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
@@ -10,13 +12,8 @@ export class GuessForm extends React.Component {
         return  this.props.dispatch(makeGuess(values.guess));
     }
     
-
     render() {
-      
         return (
-            
-               
-       
                 <div>
                     <form onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
@@ -26,14 +23,11 @@ export class GuessForm extends React.Component {
                     component={Input}
                     type="text"
                     name="guess"
-                    id="guess"
-                  
+                    id="guess" 
                 />
                    <button type="submit">Submit</button>
                     </form>
-
-          </div>
-           
+          </div>         
         );
     }
 }
