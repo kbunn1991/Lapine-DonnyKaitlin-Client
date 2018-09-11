@@ -22,9 +22,26 @@ export class Dashboard extends React.Component {
         if (this.props.currentQuestion && this.props.prevQuestion) {
             console.log('The question is', this.props.currentQuestion.lapine);
             console.log('showFeedback value',this.props.showFeedback);
+            console.log('show guess box value', this.props.showGuessBox);
             console.log('Prev Word',this.props.prevQuestion.lapine );
             lapineWord = this.props.currentQuestion.lapine;
         }
+        let feedback;
+        if (this.props.showFeedback) {
+            feedback = <div><Feedback/></div>;
+        }
+        if (!this.props.showFeedback) {
+            feedback = null;
+        }
+
+        let guessBox;
+        if (this.props.showGuessBox) {
+            guessBox = <div><GuessForm/></div>;
+        }
+        if (!this.props.showGuessBox) {
+            guessBox = null;
+        }
+
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
@@ -34,9 +51,8 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-questions">
                     <h3>{lapineWord}</h3>
             
-
-                  <GuessForm/>
-                  <Feedback/>
+                  {guessBox}
+                  {feedback}
 
                 </div>
             </div>
@@ -50,7 +66,8 @@ const mapStateToProps = state => {
         username: state.auth.currentUser.username,
         currentQuestion: state.questions.questions,
         prevQuestion: state.questions.prevQuestion,
-        showFeedback:state.questions.showFeedback
+        showFeedback:state.questions.showFeedback,
+        showGuessBox: state.questions.showGuessBox
     };
 };
 

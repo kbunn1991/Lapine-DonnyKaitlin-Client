@@ -1,15 +1,34 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import requiresLogin from './requires-login';
+import { fetchQuestions } from '../actions/questions';
 
-export default function Feedback(props) {
+export class Feedback extends React.Component {
 
-    return(
-        <div>
+    render() {
 
-        <p>Your answer is correct!</p>
-        <p>Your answer is incorrect</p>
-        <button>Next Question</button>
+        return(
+            <div>
 
-        </div>
+            <p>Your answer is correct!</p>
+            <p>Your answer is incorrect. The correct answer was {this.props.currentQuestion.english}.</p>
+            
+            <button onClick={() => this.props.dispatch(fetchQuestions())}>Next Question</button>
 
-    )
+            </div>
+
+        )
+    }
 }
+
+const mapStateToProps = state => {
+    const {currentUser} = state.auth;
+    return {
+        username: state.auth.currentUser.username,
+        currentQuestion: state.questions.questions,
+        prevQuestion: state.questions.prevQuestion,
+        showFeedback:state.questions.showFeedback
+    };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(Feedback));

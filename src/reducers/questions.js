@@ -9,6 +9,7 @@ const initialState = {
     questions:{},
     prevQuestion:{},
     showFeedback:false,
+    showGuessBox: true,
     error: null
 };
 
@@ -18,6 +19,8 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             questions: action.questions.current,
             prevQuestion: action.questions.previous,
+            showFeedback:false,
+            showGuessBox: true,
             error: null
         });
     } else if (action.type === FETCH_QUESTIONS_ERROR) {
@@ -29,6 +32,7 @@ export default function reducer(state = initialState, action) {
             // questions: action.questions.current,
             // prevQuestion: action.questions.previous,
             showFeedback:true,
+            showGuessBox: false,
             error: null
         })
     } else if (action.type === MAKE_GUESS_ERROR) {
