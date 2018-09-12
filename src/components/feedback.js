@@ -1,9 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchQuestions } from '../actions/questions';
+import { fetchQuestion, fetchAttempts, fetchCorrectCount } from '../actions/questions';
 
 export class Feedback extends React.Component {
+
+     refreshInfo = () =>{
+        this.props.dispatch(fetchQuestion());
+        this.props.dispatch(fetchAttempts());
+        this.props.dispatch(fetchCorrectCount());
+
+
+    }
 
     render() {
         // set feedback to nothing
@@ -26,7 +34,7 @@ export class Feedback extends React.Component {
             {/* <p>Your answer is correct!</p>
             <p>Your answer is incorrect. The correct answer was {this.props.correctAnswer}.</p>
              */}
-            <button onClick={() => this.props.dispatch(fetchQuestions())}>Next Question</button>
+            <button onClick={() => this.refreshInfo()}>Next Question</button>
 
             </div>
 

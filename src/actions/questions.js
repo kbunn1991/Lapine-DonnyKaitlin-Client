@@ -1,19 +1,19 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
-export const FETCH_QUESTIONS_SUCCESS = 'FETCH_QUESTIONS_SUCCESS';
-export const fetchQuestionsSuccess = questions => ({
-    type: FETCH_QUESTIONS_SUCCESS,
-    questions
+export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTIONS_SUCCESS';
+export const fetchQuestionSuccess = question => ({
+    type: FETCH_QUESTION_SUCCESS,
+    question
 });
 
-export const FETCH_QUESTIONS_ERROR = 'FETCH_QUESTIONS_ERROR';
-export const fetchQuestionsError = error => ({
-    type: FETCH_QUESTIONS_ERROR,
+export const FETCH_QUESTION_ERROR = 'FETCH_QUESTIONS_ERROR';
+export const fetchQuestionError = error => ({
+    type: FETCH_QUESTION_ERROR,
     error
 });
 
-export const fetchQuestions = () => (dispatch, getState) => {
+export const fetchQuestion = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'GET',
@@ -25,10 +25,10 @@ export const fetchQuestions = () => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         // .then(res => console.log('This is the response', res))
-        .then((questions) => dispatch(fetchQuestionsSuccess(questions)))
+        .then((question) => dispatch(fetchQuestionSuccess(question)))
         // .then(question => console.log(question))
         .catch(err => {
-            dispatch(fetchQuestionsError(err));
+            dispatch(fetchQuestionError(err));
         });
 };
 
@@ -105,6 +105,7 @@ export const makeGuessError = error => ({
 export const makeGuess = (guess) => (dispatch, getState) => {
     console.log('MAKE GUESS ACTION',guess);
     const authToken = getState().auth.authToken;
+
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'POST',
         headers: {
@@ -115,9 +116,11 @@ export const makeGuess = (guess) => (dispatch, getState) => {
            JSON.stringify({guess:guess})
         
     })
-    // .then((res)=>console.log('makeGuess response',res))
+
     .then(res => res.json()) // english word comes back
-    .then((guess) => dispatch(makeGuessSuccess(guess)))
+    .then((guess) =>{
+        dispatch(makeGuessSuccess(guess));
+    }) 
     .catch(err => {
         console.log('makeguessError',err);
         dispatch(makeGuessError(err));
