@@ -18,6 +18,7 @@ const initialState = {
     error: null
 };
 
+
 export default function reducer(state = initialState, action) {
     if (action.type === FETCH_QUESTIONS_SUCCESS) {
         console.log('IT WAS SUCCESSFUL', action);
