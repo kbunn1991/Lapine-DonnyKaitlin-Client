@@ -8,7 +8,9 @@ import {
     FETCH_CORRECTCOUNT_SUCCESS,
     FETCH_CORRECTCOUNT_ERROR,
     FETCH_ALL_QUESTIONS_SUCCESS,
-    FETCH_ALL_QUESTIONS_ERROR
+    FETCH_ALL_QUESTIONS_ERROR,
+    FETCH_HINT_SUCCESS,
+    FETCH_HINT_ERROR
 } from '../actions/questions';
 
 const initialState = {
@@ -20,6 +22,7 @@ const initialState = {
     showGuessBox: true,
     attempts:null,
     correctAnswer: '',
+    hint: '',
     error: null
 };
 
@@ -33,6 +36,7 @@ export default function reducer(state = initialState, action) {
             // prevQuestion: action.questions.previous,
             showFeedback:false,
             showGuessBox: true,
+            hint: '',
             error: null
         });
     } else if (action.type === FETCH_QUESTION_ERROR) {
@@ -78,6 +82,14 @@ export default function reducer(state = initialState, action) {
     } else if (action.type === FETCH_ALL_QUESTIONS_ERROR) {
         return Object.assign({}, state, {
             error: action.error
+        })
+    } else if (action.type === FETCH_HINT_SUCCESS) {
+        return Object.assign({}, state, {
+            hint: action.hint
+        })
+    } else if (action.type === FETCH_HINT_ERROR) {
+        return Object.assign({}, state, {
+           error: action.error 
         })
     }
     return state;

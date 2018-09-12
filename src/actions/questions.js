@@ -63,6 +63,37 @@ export const fetchAllQuestions = () => (dispatch, getState) => {
     });
 }
 
+export const FETCH_HINT_SUCCESS = 'FETCH_HINT_SUCCESS';
+export const fetchHintSuccess = hint => ({
+    type: FETCH_HINT_SUCCESS,
+    hint
+})
+
+export const FETCH_HINT_ERROR = 'FETCH_HINT_ERROR';
+export const fetchHintError = error => ({
+    type: FETCH_HINT_ERROR,
+    error
+})
+
+export const fetchHint = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions/hint`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    // .then(res => console.log('This is the response', res))
+    .then((hint) => dispatch(fetchHintSuccess(hint)))
+    // .then(question => console.log(question))
+    .catch(err => {
+        dispatch(fetchHintError(err));
+    });
+}
+
 export const FETCH_ATTEMPTS_SUCCESS = 'FETCH_ATTEMPTS_SUCCESS';
 export const fetchAttemptsSuccess = attempts => ({
     type: FETCH_ATTEMPTS_SUCCESS,
