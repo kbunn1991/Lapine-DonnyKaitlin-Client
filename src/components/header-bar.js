@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import { Link } from 'react-router-dom'
 
 export class HeaderBar extends React.Component {
     logOut() {
@@ -17,10 +18,25 @@ export class HeaderBar extends React.Component {
                 <button onClick={() => this.logOut()}>Log out</button>
             );
         }
+        // if the current page is STATS
+
+        // <button onClick={e => {
+        //     e.preventDefault();
+        //     console.log('Back to App')
+        //     }}>Back to App
+        // </button>
+                
+        // else
+        let stats = <Link to="/stats"><button onClick={e => {
+            console.log('Stats clicked!')
+            }}>My Stats
+            </button></Link>
+       
         return (
             <div className="header-bar">
-                <h1>Foo App</h1>
+                <Link to="/"><h1>Foo App</h1></Link>
                 {logOutButton}
+                {stats}
             </div>
         );
     }

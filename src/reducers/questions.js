@@ -6,10 +6,13 @@ import {
     FETCH_ATTEMPTS_SUCCESS,
     FETCH_ATTEMPTS_ERROR,
     FETCH_CORRECTCOUNT_SUCCESS,
-    FETCH_CORRECTCOUNT_ERROR
+    FETCH_CORRECTCOUNT_ERROR,
+    FETCH_ALL_QUESTIONS_SUCCESS,
+    FETCH_ALL_QUESTIONS_ERROR
 } from '../actions/questions';
 
 const initialState = {
+    questions: [],
     question:'',
     prevQuestion:{},
     correctCount:null,
@@ -68,6 +71,14 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             error: action.error
         });    
+    } else if (action.type === FETCH_ALL_QUESTIONS_SUCCESS) {
+        return Object.assign({}, state, {
+            questions: action.questions
+        })
+    } else if (action.type === FETCH_ALL_QUESTIONS_ERROR) {
+        return Object.assign({}, state, {
+            error: action.error
+        })
     }
     return state;
 }

@@ -32,6 +32,37 @@ export const fetchQuestion = () => (dispatch, getState) => {
         });
 };
 
+export const FETCH_ALL_QUESTIONS_SUCCESS = 'FETCH_ALL_QUESTIONS_SUCCESS';
+export const fetchAllQuestionSuccess = questions => ({
+    type: FETCH_ALL_QUESTIONS_SUCCESS,
+    questions
+});
+
+export const FETCH_ALL_QUESTIONS_ERROR = 'FETCH_ALL_QUESTIONS_ERROR';
+export const fetchAllQuestionError = error => ({
+    type: FETCH_ALL_QUESTIONS_ERROR,
+    error
+});
+
+export const fetchAllQuestions = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions/all`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    // .then(res => console.log('This is the response', res))
+    .then((questions) => dispatch(fetchAllQuestionSuccess(questions)))
+    // .then(question => console.log(question))
+    .catch(err => {
+        dispatch(fetchAllQuestionError(err));
+    });
+}
+
 export const FETCH_ATTEMPTS_SUCCESS = 'FETCH_ATTEMPTS_SUCCESS';
 export const fetchAttemptsSuccess = attempts => ({
     type: FETCH_ATTEMPTS_SUCCESS,
