@@ -3,13 +3,14 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {fetchQuestions, makeGuess} from '../actions/questions';
+import {fetchAttempts,fetchCorrectCount, makeGuess} from '../actions/questions';
 
 
 export class GuessForm extends React.Component {
     onSubmit(values) {
         console.log('values',values)
-        return  this.props.dispatch(makeGuess(values.guess));
+       return this.props.dispatch(makeGuess(values.guess))
+             
     }
     
     render() {

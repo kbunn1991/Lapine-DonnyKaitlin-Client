@@ -1,6 +1,6 @@
 import {
-    FETCH_QUESTIONS_SUCCESS,
-    FETCH_QUESTIONS_ERROR,
+    FETCH_QUESTION_SUCCESS,
+    FETCH_QUESTION_ERROR,
     MAKE_GUESS_SUCCESS,
     MAKE_GUESS_ERROR,
     FETCH_ATTEMPTS_SUCCESS,
@@ -10,7 +10,7 @@ import {
 } from '../actions/questions';
 
 const initialState = {
-    questions:'',
+    question:'',
     prevQuestion:{},
     correctCount:null,
     showFeedback:false,
@@ -22,17 +22,17 @@ const initialState = {
 
 
 export default function reducer(state = initialState, action) {
-    if (action.type === FETCH_QUESTIONS_SUCCESS) {
+    if (action.type === FETCH_QUESTION_SUCCESS) {
         console.log('IT WAS SUCCESSFUL', action);
         return Object.assign({}, state, {
             correctAnswer: '',
-            questions: action.questions,
+            question: action.question,
             // prevQuestion: action.questions.previous,
             showFeedback:false,
             showGuessBox: true,
             error: null
         });
-    } else if (action.type === FETCH_QUESTIONS_ERROR) {
+    } else if (action.type === FETCH_QUESTION_ERROR) {
         console.log('IT WAS AN ERROR', action);
         return Object.assign({}, state, {
             error: action.error
@@ -56,7 +56,9 @@ export default function reducer(state = initialState, action) {
     } else if (action.type === MAKE_GUESS_SUCCESS) {
         console.log('THE GUESS WAS SUCCESSFUL', action);
         return Object.assign({}, state, {
-            correctAnswer: action.guess ? action.guess : '',
+            correctAnswer: action.guess ? action.guess.answer : '',
+            attempts: action.guess.attempts,
+            correctCount: action.guess.correctCount,
             showFeedback: true,
             showGuessBox: false,
             error: null
