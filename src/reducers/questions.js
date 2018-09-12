@@ -72,6 +72,7 @@ export default function reducer(state = initialState, action) {
             error: action.error
         });    
     } else if (action.type === FETCH_ALL_QUESTIONS_SUCCESS) {
+        console.log('ACTION QUESTIONS FETCH',action.questions);
         return Object.assign({}, state, {
             questions: action.questions
         })
