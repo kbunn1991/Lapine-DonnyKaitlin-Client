@@ -5,15 +5,17 @@ import {
     MAKE_GUESS_ERROR,
     FETCH_ATTEMPTS_SUCCESS,
     FETCH_ATTEMPTS_ERROR,
-    FETCH_CORRECTANSWERS_SUCCESS,
-    FETCH_CORRECTANSWERS_ERROR
+    FETCH_CORRECTCOUNT_SUCCESS,
+    FETCH_CORRECTCOUNT_ERROR
 } from '../actions/questions';
 
 const initialState = {
     questions:'',
     prevQuestion:{},
+    correctCount:null,
     showFeedback:false,
     showGuessBox: true,
+    attempts:null,
     correctAnswer: '',
     error: null
 };
@@ -43,11 +45,11 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             error: action.error
         })
-    } else if (action.type === FETCH_CORRECTANSWERS_SUCCESS) {
+    } else if (action.type === FETCH_CORRECTCOUNT_SUCCESS) {
         return Object.assign({}, state, {
-            correctAnswer: action.correctAnswer
+            correctCount: action.correctCount
         })
-    } else if (action.type === FETCH_CORRECTANSWERS_ERROR) {
+    } else if (action.type === FETCH_CORRECTCOUNT_ERROR) {
         return Object.assign({}, state, {
             error: action.error
         })   

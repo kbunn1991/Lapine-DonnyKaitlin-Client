@@ -61,19 +61,19 @@ export const fetchAttempts = () => (dispatch, getState) => {
     });
 }
 
-export const FETCH_CORRECTANSWERS_SUCCESS = 'FETCH_CORRECTANSWERS_SUCCESS';
-export const fetchCorrectAnswersSuccess = correctAnswer => ({
-    type: FETCH_CORRECTANSWERS_SUCCESS,
-    correctAnswer
+export const FETCH_CORRECTCOUNT_SUCCESS = 'FETCH_CORRECTANSWERS_SUCCESS';
+export const fetchCorrectCountSuccess = correctCount => ({
+    type: FETCH_CORRECTCOUNT_SUCCESS,
+    correctCount
 });
 
-export const FETCH_CORRECTANSWERS_ERROR = 'FETCH_CORRECTANSWERS_ERROR';
-export const fetchCorrectAnswersError = error => ({
-    type: FETCH_CORRECTANSWERS_ERROR,
+export const FETCH_CORRECTCOUNT_ERROR = 'FETCH_CORRECTANSWERS_ERROR';
+export const fetchCorrectCountError = error => ({
+    type: FETCH_CORRECTCOUNT_ERROR,
     error
 });
 
-export const fetchCorrectAnswers = () => (dispatch, getState) => {
+export const fetchCorrectCount= () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/questions/correct`, {
         method: 'GET',
@@ -84,9 +84,9 @@ export const fetchCorrectAnswers = () => (dispatch, getState) => {
     })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then((correctAnswer) => dispatch(fetchCorrectAnswersSuccess(correctAnswer)))
+    .then((correctCount) => dispatch(fetchCorrectCountSuccess(correctCount)))
     .catch(err => {
-        dispatch(fetchCorrectAnswersError(err));
+        dispatch(fetchCorrectCountError(err));
     });
 }
 
