@@ -26,6 +26,7 @@ export class GuessForm extends React.Component {
                     type="text"
                     name="guess"
                     id="guess" 
+                    placeholder="Guess"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
                 <button type="submit">Submit</button>
