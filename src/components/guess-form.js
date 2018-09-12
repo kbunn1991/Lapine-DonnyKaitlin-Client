@@ -4,6 +4,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {fetchAttempts,fetchCorrectCount, makeGuess} from '../actions/questions';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 
 
 export class GuessForm extends React.Component {
@@ -16,18 +17,19 @@ export class GuessForm extends React.Component {
     render() {
         return (
                 <div>
-                    <form onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
+                <form onSubmit={this.props.handleSubmit(values => 
+                this.onSubmit(values)
                 )}>
                  <label htmlFor="guess"></label>
-                           <Field
+                    <Field
                     component={Input}
                     type="text"
                     name="guess"
                     id="guess" 
+                    validate={[required, nonEmpty, isTrimmed]}
                 />
-                   <button type="submit">Submit</button>
-                    </form>
+                <button type="submit">Submit</button>
+                </form>
           </div>         
         );
     }
