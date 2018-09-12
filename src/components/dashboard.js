@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchQuestions, makeGuess} from '../actions/questions';
+import {fetchQuestions, makeGuess, fetchAttempts, fetchCorrectAnswers} from '../actions/questions';
 import GuessForm from './guess-form';
 import Feedback from './feedback';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchQuestions());
+        this.props.dispatch(fetchAttempts());
+        this.props.dispatch(fetchCorrectAnswers());
     }
 
     onSubmit(values) {
@@ -51,6 +53,8 @@ export class Dashboard extends React.Component {
                
                 <div className="dashboard-questions">
                     {/* only pass the lapine word through redux, not the object, pull from array instead of LL */}
+                    <div>Attempts: {this.props.attempts}</div>
+                    <div>Correct Guesses: {this.props.correctAnswer}</div>
                     <h3>{lapineWord}</h3>
             
                   {guessBox}
@@ -66,6 +70,8 @@ const mapStateToProps = state => {
     const {currentUser} = state.auth;
     return {
         username: state.auth.currentUser.username,
+        attempts: state.questions.attempts,
+        correctAnswer: state.questions.correctAnswer,
         currentQuestion: state.questions.questions,
         prevQuestion: state.questions.prevQuestion,
         showFeedback:state.questions.showFeedback,
