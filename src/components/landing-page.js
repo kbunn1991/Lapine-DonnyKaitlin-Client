@@ -1,9 +1,14 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-
 import LoginForm from './login-form';
+import FullpageWrapper from './fullpage-wrapper';
 import './css/landingpage.css';
+
+const fullpageOptions = {
+    callbacks: ['onLeave'],
+  };
 
 export function LandingPage(props) {
    
@@ -14,8 +19,9 @@ export function LandingPage(props) {
 
     return (
         <div className="container">
+      
          <header className="title"><h1>bunny <span id="bunny2" ><img className="jump2" src="../../assets/bunny2.png"/><img className="jump" src="../../assets/bunny1.png"/></span> babble</h1></header>
-           <div className="sliding-background"></div>
+           {/* <div className="sliding-background"></div> */}
             <div className="home">
                
                 <h5>Lapine is a fictional language created by author Richard Adams for his 1972 novel Watership Down, where it is spoken by rabbit characters. 

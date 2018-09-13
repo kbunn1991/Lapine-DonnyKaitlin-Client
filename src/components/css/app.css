@@ -1,5 +1,7 @@
 
-
+html,body{
+  box-sizing: border-box;
+}
 input{
 width:100%;
 padding:10px;
@@ -27,4 +29,19 @@ input:-webkit-autofill {
 .dashboard{
     max-width:500px;
     margin:auto;
+}
+
+.form-input{
+   margin: 10px 0px;
+}
+
+#login_container .button1{
+    float:right !important;
+    padding:10px 32px;
+    margin:7px 0px;
+}
+
+.form-error{
+    float: right;
+    margin-top: -28px;
 }

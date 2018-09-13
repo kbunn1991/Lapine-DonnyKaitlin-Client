@@ -10,7 +10,7 @@ export default class Input extends React.Component {
     render() {
         let error;
         if (this.props.meta.touched && this.props.meta.error) {
-            error = <div className="form-error">{this.props.meta.error}</div>;
+            error = <span className="form-error">{this.props.meta.error}</span>;
         }
 
         let warning;
@@ -23,11 +23,13 @@ export default class Input extends React.Component {
         return (
             <div className="form-input">
                 <label htmlFor={this.props.input.name}>
+                  
                     {this.props.label}
                     {error}
                     {warning}
                 </label>
                 <input
+                    autocomplete="off"
                     {...this.props.input}
                     id={this.props.input.name}
                     type={this.props.type}

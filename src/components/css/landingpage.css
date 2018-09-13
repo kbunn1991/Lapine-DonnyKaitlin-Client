@@ -8,6 +8,7 @@
 
 }
 
+input,textarea{width:100%;display:block;margin-left: -13px;}
 
 .container {
     overflow: hidden;
@@ -37,12 +38,12 @@
     color: white;
     font-size: 15px;
     margin: auto;
-    width: 800px;
-    position: fixed;
+    /* width: 800px; */
+    /* position: fixed;
     top: 45%;
     height: 100px;
     transform: translate(-50%,-50%);
-    left: 50%;
+    left: 50%; */
     text-align: center;
   }
 
@@ -55,18 +56,49 @@
         font-size: 45px;
         margin: auto;
         width: 800px;
-        position: fixed;
+        /* position: fixed;
         top: 35%;
         height: 180px;
-        transform: translate(-50%,-50%);
-        left: 50%;
+        transform: translate(-50%,-50%); */
+        /* left: 50%; */
         text-align: center;
       }
 }
 
 
+.info{
+    max-width: 500px;
+    margin: auto;
+    font-size: 28px;
+    color: white;
+    line-height: 180%;
+}
   
 
+.more_info_container{
+    text-align:center;
+   width:100%;
+   position:absolute;
+   bottom:15px;
+    margin:auto;
+}
+
+#more_info{
+    max-width:200px;
+}
+
+.more_info_container a{
+    color:white;
+    text-decoration:none;
+    font-size:24px;
+}
+
+
+.more_info_container a:hover{
+    color:white;
+    text-decoration:underline;
+    font-size:24px;
+}
   .title img{
       width:50px;
       margin:4px;
@@ -100,3 +132,59 @@
   body{
     background-color:#ff5d5d;
   }
+
+
+#button_container{
+    text-align:center;
+   
+
+}
+
+
+
+
+
+.button1{
+
+    background-color: transparent; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    border:1px solid white;
+    border-radius:5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   margin:10px;
+
+}
+.button1:hover{
+/*  color:#000000;
+ background-color:#FFFFFF; */
+}
+
+
+#login_container{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px 20px;
+    display:none;
+
+}
+
+#registration_container{
+    max-width: 400px;
+    margin: auto;
+    padding: 20px 20px;
+    display:none;
+
+}
+
+.hide{
+    display:none;
+}
+
+.show{
+    display:block !important;
+}
