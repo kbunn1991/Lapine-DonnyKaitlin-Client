@@ -10,6 +10,12 @@ import Stats from './stats';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
+    constructor(){
+      super();
+      const currentPath = window.location.pathname;
+       console.log('currentpath',currentPath);
+
+    }
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -40,9 +46,10 @@ export class App extends React.Component {
     }
 
     render() {
+        const currentPath = window.location.pathname;
         return (
             <div className="app">
-                <HeaderBar />
+               {currentPath !=='/' ? <HeaderBar /> : null}
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />

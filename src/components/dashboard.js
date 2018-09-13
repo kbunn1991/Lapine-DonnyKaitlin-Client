@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import {fetchQuestion, makeGuess, fetchAttempts, fetchCorrectCount} from '../actions/questions';
 import GuessForm from './guess-form';
 import Feedback from './feedback';
+import './css/app.css';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -58,7 +59,7 @@ export class Dashboard extends React.Component {
                     {/* only pass the lapine word through redux, not the object, pull from array instead of LL */}
                     <div>Attempts for this word: {this.props.attempts}</div>
                     <div>Number of times you were correct: {this.props.correctCount}</div>
-                    <h3>{lapineWord}</h3>
+                    <div className="word_container"><h3>{lapineWord}</h3></div>
             
                   {guessBox}
                   {feedback}

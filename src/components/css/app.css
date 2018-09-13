@@ -1,0 +1,30 @@
+
+
+input{
+width:100%;
+padding:10px;
+margin:10 0px;
+border-radius:10px;
+font-size:16px;
+
+}
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.word_container{
+    text-align:center;
+
+}
+
+.word_container h3{
+    font-size:80px;
+    color:white;
+}
+
+.dashboard{
+    max-width:500px;
+    margin:auto;
+}

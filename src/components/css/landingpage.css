@@ -1,0 +1,102 @@
+
+@font-face {
+    font-family: 'primus_scriptregular';
+    src: url('/assets/primusscript-webfont.woff2') format('woff2'),
+         url('/assets/primusscript-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.container {
+    overflow: hidden;
+  }
+  
+  .sliding-background {
+      z-index:0;
+      position:fixed;
+      top:0px;
+      opacity:0.2;
+    /* background: url("/assets/clouds-bg.png") repeat-x; */
+    height: 701px;
+    width: 5076px;
+    /* animation: slide 60s linear infinite; */
+  }
+
+  .home{
+    
+      max-width:480px;
+      margin:auto;
+      position:relative;
+      z-index:9;
+  }
+
+  .title{
+    font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 15px;
+    margin: auto;
+    width: 800px;
+    position: fixed;
+    top: 45%;
+    height: 100px;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    text-align: center;
+  }
+
+ 
+
+  @media only screen and (min-width: 500px) {
+    .title{
+        font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 45px;
+        margin: auto;
+        width: 800px;
+        position: fixed;
+        top: 35%;
+        height: 180px;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        text-align: center;
+      }
+}
+
+
+  
+
+  .title img{
+      width:50px;
+      margin:4px;
+  }
+  
+  @keyframes slide{
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+
+  @keyframes jump {
+    0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+    40%  {transform: translate3d(0,-30%,0) scale3d(1,1,1);}
+    100% {transform: translate3d(0,-40%,0) scale3d(1,1,1);}
+  }
+  .jump {
+    transform-origin: 50% 50%;
+    animation: jump .8s ease-in-out alternate infinite;
+  }
+
+  .jump2 {
+    transform-origin: 50% 50%;
+    animation: jump .82s ease-in-out alternate infinite;
+  }
+  
+
+  body{
+    background-color:#ff5d5d;
+  }
