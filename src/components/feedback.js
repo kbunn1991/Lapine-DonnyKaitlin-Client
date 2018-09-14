@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import { fetchQuestion, fetchAttempts, fetchCorrectCount } from '../actions/questions';
+import { fetchQuestion, fetchAttempts, fetchImage,fetchCorrectCount } from '../actions/questions';
 import './css/feedback.css';
 
 export class Feedback extends React.Component {
@@ -9,6 +9,7 @@ export class Feedback extends React.Component {
      refreshInfo = () =>{
         this.props.dispatch(fetchQuestion());
         this.props.dispatch(fetchAttempts());
+        this.props.dispatch(fetchImage());
         this.props.dispatch(fetchCorrectCount());
 
 

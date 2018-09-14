@@ -1,23 +1,45 @@
 .dashboard .pxImage {
-  text-align: center;
+  /* text-align: center;
   margin-top: 22%;
   margin-left: -25px;
   display: block;
   margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  transform: translateX(-20px);
+  margin-right: auto; */
+  /* position: relative;
+  transform: translateX(-20px); */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0px;
+  z-index:1;
+  overflow:hidden;
 }
 
 .dashboard .pxImage img {
-  width: 150px;
+  width: 280px;
+  display: block;
+   height:280px;
+   z-index:1;
+   overflow:hidden;
+  /* border-radius: 50%;
+  background-color: #3673cf;
+  box-shadow: inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04); */
+  position: absolute;
+  -webkit-animation: moveX 6.05s ease-in-out 0s infinite alternate, moveY 10.4s  ease-in-out 0s infinite alternate;
+  -moz-animation: moveX 6.05s  ease-in-out 0s infinite alternate, moveY 10.4s  ease-in-out 0s infinite alternate;
+  -o-animation: moveX 6.05s  ease-in-out 0s infinite alternate, moveY 10.4s  ease-in-out 0s infinite alternate;
+  animation: moveX 6.05s  ease-in-out 0s infinite alternate, moveY 10.4s  ease-in-out 0s infinite alternate;
 }
 
 .dashboard .questions {
-  position: absolute;
+  /* position: absolute;
   left: 45px;
   top: 25px;
-  line-height: 180%;
+  line-height: 180%; */
+  position: relative;
+  z-index: 9999;
+  margin-top: 20%;
+  
 }
 
 .dashboard .testQuestion2 .question {
@@ -32,9 +54,9 @@
   position: absolute;
   color: #fff;
   top: 25px;
-  text-transform: capitalize;
-  font-family: sans-serif;
-  font-size: 15px;
+  /* text-transform: capitalize; */
+  font-weight:800;
+  font-size: 18px;
 }
 
 .testQuestion2 {
@@ -49,25 +71,12 @@
   letter-spacing: 1px;
 }
 
-.testQuestion {
-  /* width: inherit; */
-  text-align: center;
-  color: #fff;
-  top: -75px;
-  position: relative;
-  font-family: sans-serif;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  /* border-top: 1px solid rgba(255,255,255,0.1); */
-  padding-top: 3%;
-}
 
 .object {
-  animation: MoveUpDown 2.5s linear infinite;
+  /* animation: MoveUpDown 2.5s linear infinite;
   position: absolute;
   top: 0;
-  width: 100px;
+  width: 100px; */
 }
 
 @keyframes MoveUpDown {
@@ -81,3 +90,115 @@
     width: 100px;
   }
 }
+
+.form-input{
+  max-width:400px;
+  margin:auto;
+}
+
+.guessForm{
+  max-width:400px;
+  margin:auto;
+}
+
+.dashCont{
+  height:100vh;
+  width:100%;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    overflow: hidden;
+}
+
+.box b {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #3673cf;
+  box-shadow: inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04);
+  position: absolute;
+  -webkit-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -moz-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -o-animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  animation: moveX 3.05s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes moveX {
+  from { left: 0; } to { left: 70%; }
+}
+@-moz-keyframes moveX {
+  from { left: 0; } to { left: 70%; }
+}
+@-o-keyframes moveX {
+  from { left: 0; } to { left: 70%; }
+}
+@keyframes moveX {
+  from { left: 0; } to { left: 70%; }
+}
+@-webkit-keyframes moveY {
+  from { top: 0; } to { top: 50%; }
+}
+@-moz-keyframes moveY {
+  from { top: 0; } to { top: 50%; }
+}
+@-o-keyframes moveY {
+  from { top: 0; } to { top:50%; }
+}
+@keyframes moveY {
+  from { top: 0; } to { top: 50%; }
+}
+
+.dashboard-questions{
+  position: relative;
+    z-index: 9999;
+}
+
+.testQuestion {
+  /* width: inherit; */
+  text-align: left;
+  color: #fff;
+  position: fixed;
+  top: 25px;
+  left: 20px;
+  /* top: -75px; */
+  /* position: relative; */
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+
+}
+
+
+@media only screen and (max-width: 450px) {
+  .dashboard-questions{
+    position: relative;
+    z-index: 9999;
+    margin: 50% auto;
+    max-width: 350px;
+  } 
+
+  
+
+  .word_container h3{
+    font-size:70px;
+
+  }
+
+  .testQuestion {
+  
+   position:fixed !important;
+top:auto;
+   bottom:50px !important;
+
+  }
+
+
+  .guessForm{
+    max-width:250px;
+  }
+
+}
+
+
+

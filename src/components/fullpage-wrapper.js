@@ -9,8 +9,10 @@ import RegistrationForm from './registration-form';
 import './css/landingpage.css';
 
 const fullpageOptions = {
-  anchors: ['firstPage', 'secondPage', 'thirdPage'],
-  sectionsColor: ['#ff5d5d', '#43a0e4', '#0798ec'],
+//   anchors: ['firstPage', 'secondPage', 'thirdPage'],
+  sectionsColor: ['#e6e35b', '#43a0e4', '#0798ec'],
+  //'#ff5d5d'
+//  #5b78e6 #e6e35b
 //   callbacks: ['onLeave'],
   licenseKey:'OPEN-SOURCE-GPLV3-LICENSE',
   verticalCentered: true
@@ -26,8 +28,8 @@ const FullpageWrapper = (fullpageProps) => (
       let element2 = document.getElementById("login_container");
       let element3 = document.getElementById("registration_container");
       let titleElem = document.getElementById("homepage-title");
-      let myForm = document.getElementById("myForm");
-      function toggleLoginContainer(){
+     
+     const toggleLoginContainer = ()=>{
         console.log('hide');
         console.log('PROPS',fullpageProps);
         element.classList.toggle('hide');
@@ -35,13 +37,13 @@ const FullpageWrapper = (fullpageProps) => (
         element2.classList.toggle('show');
       }
 
-      function toggleRegistrationContainer(){
+     const toggleRegistrationContainer =()=>{
         element.classList.toggle('hide');
        
         element3.classList.toggle('show');
 
       }
-     console.log('myForm',myForm);
+ 
     // If we are logged in redirect straight to the user's dashboard
     if (fullpageProps.loggedIn) {
         return <Redirect to="/dashboard" />;
@@ -51,31 +53,43 @@ const FullpageWrapper = (fullpageProps) => (
         <div id="fullpage-wrapper">
           <div className="section section1 ">
           <main id="homepage-title" className="title center-both">
-             <header id="home-header" > <h1><span >bunny </span> 
-                        <span id="bunny2" >
+             <header id="home-header" >
+             <div id="left_side">
+             <div id="bunny2" >
                     <img className="jump2" src="../../assets/bunny2.png"/>
                     <img className="jump" src="../../assets/bunny1.png"/>
-                    </span>
-                    <span > babble</span>
-                    </h1>
+            </div>
+             <h1>bunny babble  </h1>
+             
+             </div>
+
+
+             <div id="right_side">
+             
+                    <div id="button_container" >
+                        {/* <Link to="/register"></Link> */}
+                        <button className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
+                    <button className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
+                    
+                    
+                    </div>
+
+                    <div id="login_container" className="fade-in" >
+                        <LoginForm cancelHandler={()=>toggleLoginContainer()}/>
+                    </div>
+
+                    <div id="registration_container" className="fade-in" >
+                        <RegistrationForm cancelHandler={()=>toggleRegistrationContainer()}/>
+                    </div>
+
+             
+             </div> 
+                      
+            
+                   
               </header>
 
-                       <div id="button_container" >
-                 {/* <Link to="/register"></Link> */}
-                 <button className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
-             <button className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
-              
-            
-            </div>
-
-            <div id="login_container" className="fade-in" >
-                <LoginForm cancelHandler={()=>toggleLoginContainer()}/>
-            </div>
-
-            <div id="registration_container" className="fade-in" >
-                <RegistrationForm cancelHandler={()=>toggleRegistrationContainer()}/>
-            </div>
-
+                      
 
             </main>
 

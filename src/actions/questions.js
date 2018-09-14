@@ -32,6 +32,37 @@ export const fetchQuestion = () => (dispatch, getState) => {
         });
 };
 
+export const FETCH_IMAGE_SUCCESS = 'FETCH_IMAGE_SUCCESS';
+export const fetchImageSuccess = imageURL => ({
+    type: FETCH_IMAGE_SUCCESS,
+    imageURL
+});
+
+export const FETCH_IMAGE_ERROR = 'FETCH_IMAGE_ERROR';
+export const fetchImageError = error => ({
+    type: FETCH_IMAGE_ERROR,
+    error
+});
+export const fetchImage = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions/image`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        // .then(res => console.log('This is the response', res))
+        .then((imageURL) => dispatch(fetchImageSuccess(imageURL)))
+        // .then(question => console.log(question))
+        .catch(err => {
+            dispatch(fetchImageError(err));
+        });
+};
+
+
 export const FETCH_ALL_QUESTIONS_SUCCESS = 'FETCH_ALL_QUESTIONS_SUCCESS';
 export const fetchAllQuestionSuccess = questions => ({
     type: FETCH_ALL_QUESTIONS_SUCCESS,
@@ -181,6 +212,7 @@ export const makeGuess = (guess) => (dispatch, getState) => {
 
     .then(res => res.json()) // english word comes back
     .then((guess) =>{
+        console.log('GUEUSS MAKE',guess)
         dispatch(makeGuessSuccess(guess));
     }) 
     .catch(err => {

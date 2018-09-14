@@ -35,7 +35,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 
   .title{
     font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
-    color: white;
+    color:#e64e4e;
     font-size: 15px;
     margin: auto;
     /* width: 800px; */
@@ -53,7 +53,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
   @media only screen and (min-width: 500px) {
     .title{
         font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
-        color: white;
+        color: #e64e4e;
         font-size: 45px;
         margin: auto;
         width: 800px;
@@ -69,7 +69,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 }
 
 #home-header{
-    
+    height:410px;
     /* opacity:0; */
 }
 
@@ -107,10 +107,9 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
     text-decoration:underline;
     font-size:24px;
 }
-  .title img{
-      width:50px;
-      margin:4px;
-  }
+ 
+
+
   
   @keyframes slide{
     0%{
@@ -144,13 +143,20 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 
 #button_container{
     text-align:center;
-   
+    position: relative;
+    margin-top: 50%;
+    width: 300px;
 
 }
 
 
 
-
+#bunny2{
+    position: relative;
+    /* margin-top: 50px; */
+    transform: translateY(60px);
+    transform: translate(-50px,60px);
+}
 
 .button1{
 
@@ -176,7 +182,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 #login_container{
     max-width: 300px;
     margin: auto;
- 
+ margin-top:50px;
   display:none;
   opacity:0;
 
@@ -235,3 +241,75 @@ form{
     opacity: 1.0 !important;
 
   } */
+
+.registration-form .form_error{
+    font-size:18px !important;
+    font-weight:bold !important;
+    float:right;
+}
+
+
+#login_container .form-error{
+    font-size:18px;
+    font-weight:bold;
+    
+    }
+
+    #left_side{
+        float:left;
+        max-width:400px;
+    }
+
+    #left_side h1{
+        margin:0px;
+        text-align:left;
+        font-size:80px
+    }
+    
+    #right_side{
+        float: right;
+        max-width: 400px;
+    }
+
+    .title img{
+        /* width:50px; */
+        width:190px;
+        margin:4px;
+    }
+
+    .word_container h3 {
+        margin-top: -3%;
+        margin: 0;
+        font-size: 140px;
+        color: white;
+    }
+
+
+  @media only screen and (min-width: 1500px) {
+
+    #left_side h1{
+        margin:0px;
+        text-align:left;
+        font-size:140px
+    }
+
+    .title img{
+        /* width:50px; */
+        width:200px;
+        margin:4px;
+    }
+
+    .word_container h3 {
+        margin-top: -3%;
+        margin: 0;
+        font-size: 160px;
+        color: white;
+    }
+
+  }
+
+  .dashboard{
+    /* max-width:500px; */
+    margin:auto;
+}
+
