@@ -9,6 +9,7 @@ const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
+        console.log('submit registration',values);
         const {username, password, firstName, lastName} = values;
         const user = {username, password, firstName, lastName};
         return this.props
@@ -20,33 +21,31 @@ export class RegistrationForm extends React.Component {
 
     render() {
         return (
-            <form name="myForm" id="myForm" autoComplete="newoff"
-                className="registration-form"
+            <form name="registration" id="registration" autoComplete="newoff"
+                className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                  <input type='hidden' value='something'/>
-                <label htmlFor="new-username">Username</label>
+                <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
                     type="text"
-                    name="new-username"
-                    autocomplete="new-user-username"
+                    name="username"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
-                <label htmlFor="new-password">Password</label>
+                <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"
-                    name="new-password"
-                    autocomplete="new-user-password"
+                    name="password"
                     validate={[required, passwordLength, isTrimmed]}
                 />
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                     component={Input}
                     type="password"
-                    name="new-passwordConfirm"
+                    name="passwordConfirm"
                     validate={[required, nonEmpty, matchesPassword]}
                 />
 
@@ -71,5 +70,6 @@ export class RegistrationForm extends React.Component {
 export default reduxForm({
     form: 'registration',
     onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('registration', Object.keys(errors)[0]))
+    console.log('getting error register', Object.keys(errors)[0])
+        //  dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);

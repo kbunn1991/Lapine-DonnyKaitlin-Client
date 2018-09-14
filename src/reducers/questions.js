@@ -10,7 +10,9 @@ import {
     FETCH_ALL_QUESTIONS_SUCCESS,
     FETCH_ALL_QUESTIONS_ERROR,
     FETCH_HINT_SUCCESS,
-    FETCH_HINT_ERROR
+    FETCH_HINT_ERROR,
+    FETCH_IMAGE_SUCCESS,
+    FETCH_IMAGE_ERROR
 } from '../actions/questions';
 
 const initialState = {
@@ -22,6 +24,7 @@ const initialState = {
     showGuessBox: true,
     attempts:null,
     correctAnswer: '',
+    imageURL:'',
     hint: '',
     error: null
 };
@@ -92,6 +95,15 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
            error: action.error 
         })
+    } else if (action.type === FETCH_IMAGE_SUCCESS) {
+        return Object.assign({}, state, {
+            imageURL: action.imageURL
+        })
+    } else if (action.type === FETCH_IMAGE_ERROR) {
+        return Object.assign({}, state, {
+           error: action.error 
+        })
     }
+    
     return state;
 }
