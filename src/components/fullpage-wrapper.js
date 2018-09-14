@@ -69,8 +69,8 @@ const FullpageWrapper = (fullpageProps) => (
              
                     <div id="button_container" >
                         {/* <Link to="/register"></Link> */}
-                        <button className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
-                    <button className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
+                        <button title="Login button" className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
+                    <button title="Register button" className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
                     
                     
                     </div>
