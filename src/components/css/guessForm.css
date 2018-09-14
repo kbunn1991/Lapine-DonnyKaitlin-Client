@@ -32,9 +32,18 @@ guessForm form {
   transition: 0.6s;
 }
 
-.guessForm input {
+/* .guessForm input {
   text-align: center;
   margin-left: -5%;
   padding: 4%;
   border: none;
+} */
+
+.guessForm input {
+  text-align: center;
+  /* margin-left: -5%; */
+  /* padding: 4%; */
+  border: none;
+  font-family: monospace;
+  font-size: 40px;
 }

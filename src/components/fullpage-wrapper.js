@@ -10,7 +10,7 @@ import './css/landingpage.css';
 
 const fullpageOptions = {
 //   anchors: ['firstPage', 'secondPage', 'thirdPage'],
-  sectionsColor: ['#e6e35b', '#43a0e4', '#0798ec'],
+  sectionsColor: ['#3d9fe7', '#43a0e4', '#0798ec'],
   //'#ff5d5d'
 //  #5b78e6 #e6e35b
 //   callbacks: ['onLeave'],
@@ -60,7 +60,8 @@ const FullpageWrapper = (fullpageProps) => (
                     <img className="jump" src="../../assets/bunny1.png"/>
             </div>
              <h1>bunny babble  </h1>
-             
+             <hr></hr>
+            <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
              </div>
 
 
@@ -89,7 +90,7 @@ const FullpageWrapper = (fullpageProps) => (
                    
               </header>
 
-                      
+                      <div class="hero__scroll">Scroll down</div>
 
             </main>
 
@@ -99,7 +100,7 @@ const FullpageWrapper = (fullpageProps) => (
           <div className="more_info_container">
                 <span className="more_info">
                     <a href="#" onClick={() => fullpageApi.moveSectionDown()}>
-                    What is bunny babble?
+                  
                     </a>
                 </span>
             </div>
@@ -110,6 +111,7 @@ const FullpageWrapper = (fullpageProps) => (
               {/* <h3>Slide 2.1</h3> */}
               <div className="info">
                <h2>Learn Lapine.</h2>
+               <hr></hr>
                <p>Lapine is a fictional language created by author Richard Adams for his 1972 novel Watership Down, where it is spoken by rabbit characters. 
                    Now with bunny babble you can learn the secret language of the bunnies!
                </p>
@@ -119,6 +121,7 @@ const FullpageWrapper = (fullpageProps) => (
             <div className="slide">
                  <div className="info">
                     <h2>Spaced Learning.</h2>
+                    <hr></hr>
                     <p>Bunny babble uses a unique spaced repetition algorithm so that you can effectively memorize vocabulary.
                       Words that you have trouble with will appear more frequently, while words that you know are shown less.
                       
@@ -128,6 +131,7 @@ const FullpageWrapper = (fullpageProps) => (
             <div className="slide">
             <div className="info">
                     <h2>Keep track of your progress.</h2>
+                    <hr></hr>
                     <p>Each time you answer a question, your response and accuracy for each word are recorded. 
                       Check out your stats page to see how you are doing - you'll be surprised how quick you improve!
                       
@@ -138,8 +142,9 @@ const FullpageWrapper = (fullpageProps) => (
           <div className="section">
           <div className="info">
                     <h2>Created with Care.</h2>
+                    <hr></hr>
                     <p>Bunny Babble was created by Kaitlin Bunn and Donny Cheng in one week as part of the Thinkful Engineering Immersion program.
-                        Feel free to contact us about any questions!
+                        No bunnies were harmed during the creation of this project. Feel free to contact us about any questions!
 
                       
                     </p>

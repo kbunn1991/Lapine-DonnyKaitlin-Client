@@ -35,7 +35,8 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 
   .title{
     font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
-    color:#e64e4e;
+    /* color:#e64e4e; */
+    color: #ffbdf0;
     font-size: 15px;
     margin: auto;
     /* width: 800px; */
@@ -53,7 +54,8 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
   @media only screen and (min-width: 500px) {
     .title{
         font-family: 'Helvetica Neue',Arial, Helvetica, sans-serif;
-        color: #e64e4e;
+        /* color: #e64e4e; */
+        color:#ffbdf0;
         font-size: 45px;
         margin: auto;
         width: 800px;
@@ -107,9 +109,17 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
     text-decoration:underline;
     font-size:24px;
 }
+
+#left_side p{
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+    text-align: left;
+}
  
-
-
+hr{
+border-style: dashed;
+}
   
   @keyframes slide{
     0%{
@@ -137,7 +147,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
   
 
   body{
-    background-color:#ff5d5d;
+    /* background-color:#ff5d5d; */
   }
 
 
@@ -182,7 +192,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 #login_container{
     max-width: 300px;
     margin: auto;
- margin-top:50px;
+ margin-top:70px;
   display:none;
   opacity:0;
 
@@ -191,6 +201,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 #registration_container{
     max-width: 300px;
     margin: auto;
+    margin-top:86px;
     padding: 20px 20px;
     display:none;
     opacity:0;
@@ -311,5 +322,71 @@ form{
   .dashboard{
     /* max-width:500px; */
     margin:auto;
+}
+
+.hero__scroll:before {
+    width: 60px;
+    height: 1px;
+    top: 10px;
+    left: 0
+}
+
+.hero__scroll:after {
+    width: 30px;
+    height: 3px;
+    top: 9px;
+    left: 30px;
+    animation: bounce 1s infinite linear
+}
+
+@keyframes bounceY {
+    30% {
+        transform: translate(0, -3px)
+    }
+    50% {
+        transform: translate(0, 0)
+    }
+    70% {
+        transform: translate(0, 3px)
+    }
+}
+
+@keyframes bounce {
+    30% {
+        transform: translate(-3px, 0)
+    }
+    50% {
+        transform: translate(0, 0)
+    }
+    70% {
+        transform: translate(3px, 0)
+    }
+}
+
+.hero__scroll:after,
+.hero__scroll:before {
+    display: block;
+    position: absolute;
+    content: '';
+    background: #fff
+}
+
+
+.hero__scroll {
+    color: #fff;
+    width: 140px;
+    height: 20px;
+    position: absolute;
+    margin: 0 -70px 0 0;
+    padding: 0 0 0 40px;
+    font-size: 16px;
+    line-height: 20px;
+    top: 66%;
+    right: 20px;
+    z-index: 1;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
 }
 
