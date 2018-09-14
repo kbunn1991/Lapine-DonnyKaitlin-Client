@@ -41,9 +41,17 @@ export class LoginForm extends React.Component {
                     id="password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+
+                <div className="buttons-form-container">
+                <button className="button1" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+
+                    <button className="button1"   onClick={(e)=>{e.preventDefault(); this.props.cancelHandler()}} >
+                    Cancel
+                </button>
+
+              </div>
             </form>
         );
     }

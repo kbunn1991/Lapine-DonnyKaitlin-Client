@@ -7,6 +7,7 @@ import {fetchAttempts,fetchCorrectCount, makeGuess, fetchHint} from '../actions/
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
+import './css/guessForm.css';
 
 
 export class GuessForm extends React.Component {
@@ -27,8 +28,8 @@ export class GuessForm extends React.Component {
         }
 
         return (
-                <div>
-                <form onSubmit={this.props.handleSubmit(values => 
+            <div className="guessForm">
+                <form autoComplete="off" onSubmit={this.props.handleSubmit(values => 
                 this.onSubmit(values)
                 )}>
                  <label htmlFor="guess"></label>
@@ -40,12 +41,12 @@ export class GuessForm extends React.Component {
                     placeholder={hint}
                     validate={[required, nonEmpty, isTrimmed]}
                 />
-                <button type="submit">Submit</button>
-                </form>
-                <button onClick={() => {
+                <button className="guessButton" type="submit">Submit</button>
+                <button className="guessButton" type="button" onClick={() => {
                     console.log('Hint button works');
                     this.props.dispatch(fetchHint())
                 }}>Get a Hint</button>
+                </form>
           </div>         
         );
     }

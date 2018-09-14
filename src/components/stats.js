@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchAllQuestions } from '../actions/questions';
-
+import './css/stats.css';
 
 const sortByKey = (array, key) => {
   return array.sort(function(a, b) {
@@ -96,13 +96,18 @@ export class Stats extends React.Component {
       leastWord = successArray[successArray.length-1].lapineWord;
       console.log('mostWord',leastWord);
       }
-    return (
-      <div>
-        <h2>{this.props.username}'s Progress</h2>
-        <div>{totCorrect}/{totAttempts} questions correctly answered.</div>
 
-        <div>The word you know best: {mostWord} </div>
-        <div>The word you struggle with most is : {leastWord} </div>
+    let percent = Math.floor((totCorrect/totAttempts)*100)
+    
+    return (
+      <div className="stats statsCont">
+        <div className="statsTitle">{this.props.username}'s Progress</div>
+        <div className="statsDeets">
+          <div>{percent}% questions correctly answered.</div>
+
+          <div>The word you know best: {mostWord} </div>      
+          <div>The word you struggle with most is : {leastWord} </div>
+        </div>
       </div>
     )
   }

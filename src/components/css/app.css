@@ -1,0 +1,91 @@
+
+html,body{
+  box-sizing: border-box;
+  color:white;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10 0px;
+border-radius:10px;
+font-size:16px;
+
+}
+
+.dashboard .form-error {
+    color: #fff;
+    text-align: left;
+    display: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.word_container{
+    text-align:center;
+
+}
+
+.word_container h3{
+    margin-top: -3%;
+    font-size:80px;
+    color:white;
+}
+
+.dashboard{
+    max-width:500px;
+    margin:auto;
+}
+
+.form-input{
+}
+
+
+.form-error{
+    float: right;
+    margin-top: -28px;
+}
+
+
+.center-both{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.move-up{
+    top: 35%;
+    
+}
+
+
+#fullpage-wrapper{
+    position:absolute;
+    width:100%;
+    top:0px;
+}
+
+
+.fade-in {
+	opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-delay: 0.3s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

@@ -1,23 +1,36 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-
 import LoginForm from './login-form';
+import FullpageWrapper from './fullpage-wrapper';
+import './css/landingpage.css';
+
+const fullpageOptions = {
+    callbacks: ['onLeave'],
+  };
 
 export function LandingPage(props) {
+   
     // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
 
     return (
-        <div className="home">
-            <h2>Learn Lapine / Bunny Babbel</h2>
-            <h5>Lapine is a fictional language created by author Richard Adams for his 1972 novel Watership Down, where it is spoken by rabbit characters. 
-                Now you can learn to speak to the bunnies too!
-            </h5>
-            <LoginForm />
-            <Link to="/register">Register</Link>
+        <div className="container">
+      
+         <header className="title"><h1>bunny <span id="bunny2" ><img className="jump2" src="../../assets/bunny2.png"/><img className="jump" src="../../assets/bunny1.png"/></span> babble</h1></header>
+           {/* <div className="sliding-background"></div> */}
+            <div className="home">
+               
+                <h5>Lapine is a fictional language created by author Richard Adams for his 1972 novel Watership Down, where it is spoken by rabbit characters. 
+                    Now you can learn to speak to the bunnies too!
+                </h5>
+                <LoginForm />
+                <Link to="/register">Register</Link>
+            </div>
+         
         </div>
     );
 }

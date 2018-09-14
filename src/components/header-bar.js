@@ -2,9 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './css/header-bar.css';
+
 
 export class HeaderBar extends React.Component {
+    
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -27,16 +30,29 @@ export class HeaderBar extends React.Component {
         // </button>
                 
         // else
-        let stats = <Link to="/stats"><button onClick={e => {
-            console.log('Stats clicked!')
-            }}>My Stats
+
+        // if (this.props.location.pathname = '/stats'
+        let stats;
+    
+        if (window.location.pathname === '/stats') {
+            stats = <Link to="/dashboard"><button onClick={e => {
+                console.log('Stats clicked!')
+                }}>Dashboard
             </button></Link>
-       
+        } else {
+            stats = <Link to="/stats"><button onClick={e => {
+                console.log('Stats clicked!')
+                }}>My Stats
+            </button></Link>
+        }
+
+        // console.log(this.props);
         return (
             <div className="header-bar">
-                <Link to="/"><h1>Foo App</h1></Link>
-                {logOutButton}
-                {stats}
+            <div className="buttons">
+                    <div className="button">{logOutButton}</div>
+                    <div className="button">{stats}</div>
+            </div>
             </div>
         );
     }

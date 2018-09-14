@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm, focus,reset} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
@@ -16,40 +16,53 @@ export class RegistrationForm extends React.Component {
             .then(() => this.props.dispatch(login(username, password)));
     }
 
+    reset=()=>this.props.reset()
+
     render() {
         return (
-            <form
-                className="login-form"
+            <form name="myForm" id="myForm" autoComplete="newoff"
+                className="registration-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-              
-                <label htmlFor="username">Username</label>
+                 <input type='hidden' value='something'/>
+                <label htmlFor="new-username">Username</label>
                 <Field
                     component={Input}
                     type="text"
-                    name="username"
+                    name="new-username"
+                    autocomplete="new-user-username"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="new-password">Password</label>
                 <Field
                     component={Input}
                     type="password"
-                    name="password"
+                    name="new-password"
+                    autocomplete="new-user-password"
                     validate={[required, passwordLength, isTrimmed]}
                 />
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
                     component={Input}
                     type="password"
-                    name="passwordConfirm"
+                    name="new-passwordConfirm"
                     validate={[required, nonEmpty, matchesPassword]}
                 />
+
+                <div className="buttons-form-container">
                 <button
+                    className="button1"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
                 </button>
+
+                  <button className="button1" onClick={(e)=>{e.preventDefault(); this.props.cancelHandler()}} >
+                    Cancel
+                </button>
+                </div>
+       
             </form>
         );
     }

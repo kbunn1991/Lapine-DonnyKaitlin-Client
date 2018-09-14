@@ -1,0 +1,19 @@
+.feedback .message {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  margin-top: -20px;
+}
+
+.feedback button {
+  margin: auto;
+  display: block;
+  width: 45%;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+}
