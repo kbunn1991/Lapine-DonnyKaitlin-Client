@@ -4,7 +4,7 @@
 
 ## Deployed Version
 
-The deployed version of our client can be found here:
+The deployed version of our app can be found here:
 
 **https://bunneh-client.herokuapp.com**
 
