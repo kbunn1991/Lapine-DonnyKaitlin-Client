@@ -42,3 +42,5 @@ The deployed version of our app can be found here:
 * Heroku
 
 ## Future Plans
+
+Later on, we will expand the app's vocabulary by adding more words to the database. Addtionally, we plan to implement a 'leaderboard' system, where the top scoring users will be displayed for all to see.
