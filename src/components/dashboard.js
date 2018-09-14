@@ -5,6 +5,7 @@ import {fetchQuestion, makeGuess, fetchAttempts, fetchCorrectCount} from '../act
 import GuessForm from './guess-form';
 import Feedback from './feedback';
 import './css/app.css';
+import './css/dashboard.css';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -49,22 +50,46 @@ export class Dashboard extends React.Component {
             guessBox = null;
         }
 
+        let img = <img src="http://pixelartmaker.com/art/704b90e4e573604.png"></img>
+
         return (
+            <div className="dashCont">
+            <div className="dashboard-username">
+                Hello, {this.props.username} !
+            </div>
             <div className="dashboard">
-                <div className="dashboard-username">
-                     Hello {this.props.username} !
-                </div>
                
                 <div className="dashboard-questions">
-                    {/* only pass the lapine word through redux, not the object, pull from array instead of LL */}
-                    <div>Attempts for this word: {this.props.attempts}</div>
-                    <div>Number of times you were correct: {this.props.correctCount}</div>
-                    <div className="word_container"><h3>{lapineWord}</h3></div>
-            
+                    <div className="questions">
+                        {/* only pass the lapine word through redux, not the object, pull from array instead of LL */}
+                        {/* <div className="testQuestion2 object">
+                            Attempts for this word: {this.props.attempts}
+                            Number of times you were correct: {this.props.correctCount}
+                        </div> */}
+                        <div className="testQuestion2">
+                        {/* <div className="object">
+                            Attempts: {this.props.attempts}<br />
+                            Correct: {this.props.correctCount}
+                        </div> */}
+                        </div>
+                    </div>
+                    <div className="pxImage object">{img}</div>
+                    <div className="word_container"><h3>{lapineWord}</h3>
+
+                        <div className="testQuestion">You've attempted this word: <b>{this.props.attempts} times</b> 
+                        <br />& Correctly answered: <b>{this.props.correctCount} times</b></div>
+                    </div>
+                
                   {guessBox}
                   {feedback}
 
                 </div>
+            </div>
+
+{/* <div class="object">
+  hello world!
+</div> */}
+
             </div>
         );
     }

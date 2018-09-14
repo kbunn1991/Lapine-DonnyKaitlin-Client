@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchQuestion, fetchAttempts, fetchCorrectCount } from '../actions/questions';
+import './css/feedback.css';
 
 export class Feedback extends React.Component {
 
@@ -24,13 +25,13 @@ export class Feedback extends React.Component {
 
         // if answer is incorrect
         if (this.props.correctAnswer) {
-            feedback = <p>Your answer is incorrect. The correct answer was {this.props.correctAnswer}.</p>;
+            feedback = <p>Your answer is incorrect.<br />The correct answer was {this.props.correctAnswer}.</p>;
         }
 
         return(
-            <div>
+            <div className="feedback">
 
-            {feedback}
+            <div className="message">{feedback}</div>
             {/* <p>Your answer is correct!</p>
             <p>Your answer is incorrect. The correct answer was {this.props.correctAnswer}.</p>
              */}
