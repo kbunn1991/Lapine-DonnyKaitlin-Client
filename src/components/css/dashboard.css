@@ -1,3 +1,7 @@
+body{
+  background-color:#ff5d5d;
+}
+
 .dashboard .pxImage {
   /* text-align: center;
   margin-top: 22%;
@@ -99,6 +103,7 @@
 .guessForm{
   max-width:400px;
   margin:auto;
+  margin-top: 40px;
 }
 
 .dashCont{

@@ -8,6 +8,13 @@ import './css/header-bar.css';
 
 export class HeaderBar extends React.Component {
     
+    constructor(props) {
+        super(props);
+        this.state ={
+          stats : true
+        }
+      }
+
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -36,12 +43,18 @@ export class HeaderBar extends React.Component {
     
         if (window.location.pathname === '/stats') {
             stats = <Link to="/dashboard"><button onClick={e => {
-                console.log('Stats clicked!')
+                console.log('Stats clicked!');
+                this.setState({
+                    stats : true
+                  });
                 }}>Dashboard
             </button></Link>
         } else {
             stats = <Link to="/stats"><button onClick={e => {
-                console.log('Stats clicked!')
+                console.log('Stats clicked!');
+                this.setState({
+                    stats : false
+                  });
                 }}>My Stats
             </button></Link>
         }

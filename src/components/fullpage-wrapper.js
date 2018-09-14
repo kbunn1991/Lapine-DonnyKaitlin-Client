@@ -51,18 +51,18 @@ const FullpageWrapper = (fullpageProps) => (
 
       return (
         <div id="fullpage-wrapper">
-          <div className="section section1 ">
+          <div className="section section1" title="bunny babble - Learn the bunny language!">
           <main id="homepage-title" className="title center-both">
              <header id="home-header" >
-             <div id="left_side">
+             <banner id="left_side">
              <div id="bunny2" >
-                    <img className="jump2" src="../../assets/bunny2.png"/>
-                    <img className="jump" src="../../assets/bunny1.png"/>
+                    <img className="jump2" src="../../assets/bunny2.png" title= "bunny wunny" alt="bunny :3"/>
+                    <img className="jump" src="../../assets/bunny1.png"  title= "bunny wunny"  alt="bunny cute" />
             </div>
              <h1>bunny babble  </h1>
              <hr></hr>
             <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
-             </div>
+             </banner>
 
 
              <div id="right_side">
@@ -89,12 +89,15 @@ const FullpageWrapper = (fullpageProps) => (
             
                    
               </header>
-
-                      <div class="hero__scroll">Scroll down</div>
+                    <div className="scroll_indicator">
+                      <div className="hero__scroll">Scroll down</div>
+                      </div>
 
             </main>
 
-     
+                 <div className="scroll_indicator2">
+                      <div className="hero__scroll">Scroll down</div>
+                      </div>
            
 
           <div className="more_info_container">
@@ -108,7 +111,7 @@ const FullpageWrapper = (fullpageProps) => (
           </div>
           <div className="section">
             <div className="slide">
-              {/* <h3>Slide 2.1</h3> */}
+            
               <div className="info">
                <h2>Learn Lapine.</h2>
                <hr></hr>
@@ -156,10 +159,6 @@ const FullpageWrapper = (fullpageProps) => (
   />
 );
 
-// ReactDOM.render(
-//   <FullpageWrapper {...fullpageOptions} />,
-//   document.getElementById('root'),
-// );
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null

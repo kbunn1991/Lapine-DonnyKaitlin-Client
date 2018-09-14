@@ -154,7 +154,7 @@ border-style: dashed;
 #button_container{
     text-align:center;
     position: relative;
-    margin-top: 50%;
+    margin-top: 80%;
     width: 300px;
 
 }
@@ -192,7 +192,7 @@ border-style: dashed;
 #login_container{
     max-width: 300px;
     margin: auto;
- margin-top:70px;
+ margin-top:80%;
   display:none;
   opacity:0;
 
@@ -201,8 +201,8 @@ border-style: dashed;
 #registration_container{
     max-width: 300px;
     margin: auto;
-    margin-top:86px;
-    padding: 20px 20px;
+    margin-top:50%;
+    /* padding: 20px 20px; */
     display:none;
     opacity:0;
 
@@ -280,6 +280,7 @@ form{
     #right_side{
         float: right;
         max-width: 400px;
+        color:white !important;
     }
 
     .title img{
@@ -295,8 +296,28 @@ form{
         color: white;
     }
 
+    .scroll_indicator{
+        display:none;
+    }
+
+    .scroll_indicator2{
+        display:block;
+    }
+
 
   @media only screen and (min-width: 1500px) {
+    .hero__scroll{
+        margin: 0 -70px 0 0 !important;
+        padding: 0 0 0 40px !important;
+        top: 66% !important;
+    }
+    .scroll_indicator{
+        display:block;
+    }
+
+    .scroll_indicator2{
+        display:none;
+    }
 
     #left_side h1{
         margin:0px;
@@ -317,7 +338,29 @@ form{
         color: white;
     }
 
+    #login_container{
+      
+            margin-top: 150px !important;
+    }
+
+    #button_container{
+        margin-top: 50%;
+    }
+
+    #registration_container{
+        margin-top: 30%;
+    }
+
+    #login_container{
+
+    }
+        
+    
+
   }
+
+
+
 
   .dashboard{
     /* max-width:500px; */
@@ -378,10 +421,10 @@ form{
     height: 20px;
     position: absolute;
     margin: 0 -70px 0 0;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 70px;
     font-size: 16px;
     line-height: 20px;
-    top: 66%;
+    top: 56%;
     right: 20px;
     z-index: 1;
     -webkit-transform: rotate(90deg);
@@ -390,3 +433,79 @@ form{
     -o-transform: rotate(90deg);
 }
 
+
+@media only screen and (max-width: 450px) {
+    #left_side h1 {
+        margin: 0px;
+        text-align: center !important;
+        font-size: 50px !important;
+    }
+
+    #bunny2{
+        transform:none;
+    }
+
+    #bunny2 img{
+        width:80px;
+    }
+
+    hr{
+       width:80%;
+    }
+
+    #right_side{
+        float:none;
+        margin-top:0;
+    }
+
+    #button_container {
+        margin-top:0;
+        width:100%;
+    }
+
+    #left_side p {
+        font-size: 18px;
+        color: white;
+        font-weight: 800;
+        margin: 23px;
+        text-align:center;
+    }
+
+    .hero__scroll{
+      
+        margin: 0 -100px 0 0 !important;
+        top: 86%;
+    }
+    #home-header {
+        height:auto;
+    }
+    
+    #login_container {
+        max-width: 300px;
+        margin-top:0 !important;
+    }
+
+    #registration_container {
+        max-width: 300px;
+        margin-top:0 !important;
+    }
+
+    .info p{
+        margin: 27px;
+    font-size: 23px;
+    line-height: 180%;
+    }
+
+    .info h2{
+        margin:0px 25px;
+    }
+    .info hr{
+        display:none;
+    }
+
+    .fp-controlArrow {
+        display:none;
+    }
+
+
+  }

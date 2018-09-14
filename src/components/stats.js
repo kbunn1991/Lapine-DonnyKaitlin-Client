@@ -11,16 +11,34 @@ const sortByKey = (array, key) => {
   });
 }
 
+// const compare = (a,b)=>{
+//    console('compare',a);
+//   const genreA = a.percentCorrect;
+//   const genreB = b.percentCorrect;
+  
+//   let comparison = 0;
+//   if (genreA > genreB) {
+//     comparison = 1;
+//   } else if (genreA < genreB) {
+//     comparison = -1;
+//   }
+//   return comparison;
+
+
+// }
+
 export class Stats extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchAllQuestions());
+    
   }
 
   render() {
     // percentage of total amount of correct answers over total number of attempts - percentage
     // most accurate word
     let questions = this.props.questions.questions;
-    console.log(questions);
+    console.log('username',this.props.username);
+    // console.log(questions);
     let totAttempts = 0;
     let totCorrect = 0;
 
@@ -55,8 +73,8 @@ export class Stats extends React.Component {
         lapineWord:lapineWord
       }
       successArray.push(tempObject);
-      successArray = sortByKey(successArray,percentCorrect);
-      console.log('successArray',successArray);
+      successArray = successArray.sort((a,b) =>{return a.percentCorrect > b.percentCorrect}) ;
+       console.log('successArray',successArray);
     }
 
    
@@ -88,25 +106,32 @@ export class Stats extends React.Component {
     let mostWord=null;
     let leastWord=null;
     if(mostObject !== undefined){
-    mostWord = successArray[0].lapineWord;
+    mostWord = successArray[successArray.length-1].lapineWord;
     console.log('mostWord',mostWord);
+    } else {
+      mostWord = '____'
     }
 
+
+
     if(leastObject !== undefined){
-      leastWord = successArray[successArray.length-1].lapineWord;
+      leastWord = successArray[0].lapineWord;
       console.log('mostWord',leastWord);
       }
 
     let percent = Math.floor((totCorrect/totAttempts)*100)
-    
+    if (!percent){
+      percent = 100;
+    }
     return (
       <div className="stats statsCont">
         <div className="statsTitle">{this.props.username}'s Progress</div>
         <div className="statsDeets">
-          <div>{percent}% questions correctly answered.</div>
+      
+          <h1>{percent}% total accuracy</h1>
 
-          <div>The word you know best: {mostWord} </div>      
-          <div>The word you struggle with most is : {leastWord} </div>
+          <p>The word you know best: {mostWord} </p>      
+          <p>The word you struggle with most : {leastWord} </p>
         </div>
       </div>
     )
