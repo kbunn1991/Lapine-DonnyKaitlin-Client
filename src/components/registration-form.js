@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm, focus,reset} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
@@ -16,11 +16,11 @@ export class RegistrationForm extends React.Component {
             .then(() => this.props.dispatch(login(username, password)));
     }
 
-   
+    reset=()=>this.props.reset()
 
     render() {
         return (
-            <form id="myForm" autocomplete="newoff"
+            <form name="myForm" id="myForm" autoComplete="newoff"
                 className="registration-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
@@ -49,6 +49,8 @@ export class RegistrationForm extends React.Component {
                     name="new-passwordConfirm"
                     validate={[required, nonEmpty, matchesPassword]}
                 />
+
+                <div className="buttons-form-container">
                 <button
                     className="button1"
                     type="submit"
@@ -59,6 +61,8 @@ export class RegistrationForm extends React.Component {
                   <button className="button1" onClick={(e)=>{e.preventDefault(); this.props.cancelHandler()}} >
                     Cancel
                 </button>
+                </div>
+       
             </form>
         );
     }

@@ -1,6 +1,7 @@
 
 html,body{
   box-sizing: border-box;
+  color:white;
 }
 input{
 width:100%;
@@ -32,16 +33,52 @@ input:-webkit-autofill {
 }
 
 .form-input{
-   margin: 10px 0px;
 }
 
-#login_container .button1{
-    float:right !important;
-    padding:10px 32px;
-    margin:7px 0px;
-}
 
 .form-error{
     float: right;
     margin-top: -28px;
+}
+
+
+.center-both{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.move-up{
+    top: 35%;
+    
+}
+
+
+#fullpage-wrapper{
+    position:absolute;
+    width:100%;
+    top:0px;
+}
+
+
+.fade-in {
+	opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-delay: 0.3s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

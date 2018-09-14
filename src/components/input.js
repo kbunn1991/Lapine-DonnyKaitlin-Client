@@ -29,7 +29,7 @@ export default class Input extends React.Component {
                     {warning}
                 </label>
                 <input
-                    autocomplete="off"
+                    autoComplete="off"
                     {...this.props.input}
                     id={this.props.input.name}
                     type={this.props.type}

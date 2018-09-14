@@ -42,7 +42,7 @@ export class LoginForm extends React.Component {
                     validate={[required, nonEmpty]}
                 />
 
-              
+                <div className="buttons-form-container">
                 <button className="button1" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
@@ -51,7 +51,7 @@ export class LoginForm extends React.Component {
                     Cancel
                 </button>
 
-              
+              </div>
             </form>
         );
     }

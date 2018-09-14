@@ -10,32 +10,34 @@ import './css/landingpage.css';
 
 const fullpageOptions = {
   anchors: ['firstPage', 'secondPage', 'thirdPage'],
-  sectionsColor: ['#282c34', '#ff5f45', '#0798ec'],
-  callbacks: ['onLeave'],
-  licenseKey:'OPEN-SOURCE-GPLV3-LICENSE'
-
+  sectionsColor: ['#ff5d5d', '#43a0e4', '#0798ec'],
+//   callbacks: ['onLeave'],
+  licenseKey:'OPEN-SOURCE-GPLV3-LICENSE',
+  verticalCentered: true
 };
 
 const FullpageWrapper = (fullpageProps) => (
   <ReactFullpage
     {...fullpageProps}
+    {...fullpageOptions}
     render={({ state, fullpageApi }) => {
       console.log('render prop change', state); // eslint-disable-line no-console
       let element = document.getElementById("button_container");
       let element2 = document.getElementById("login_container");
       let element3 = document.getElementById("registration_container");
+      let titleElem = document.getElementById("homepage-title");
       let myForm = document.getElementById("myForm");
       function toggleLoginContainer(){
         console.log('hide');
         console.log('PROPS',fullpageProps);
         element.classList.toggle('hide');
-        document.getElementById('myForm').reset();
+      
         element2.classList.toggle('show');
       }
 
       function toggleRegistrationContainer(){
         element.classList.toggle('hide');
-        document.getElementById('myForm').reset();
+       
         element3.classList.toggle('show');
 
       }
@@ -47,35 +49,46 @@ const FullpageWrapper = (fullpageProps) => (
 
       return (
         <div id="fullpage-wrapper">
-          <div className="section section1">
-          <header className="title"><h1>bunny <span id="bunny2" ><img className="jump2" src="../../assets/bunny2.png"/><img className="jump" src="../../assets/bunny1.png"/></span> babble</h1></header>
-            {/* <h3>Section 1</h3> */}
+          <div className="section section1 ">
+          <main id="homepage-title" className="title center-both">
+             <header id="home-header" > <h1><span >bunny </span> 
+                        <span id="bunny2" >
+                    <img className="jump2" src="../../assets/bunny2.png"/>
+                    <img className="jump" src="../../assets/bunny1.png"/>
+                    </span>
+                    <span > babble</span>
+                    </h1>
+              </header>
 
-            <div id="button_container">
+                       <div id="button_container" >
                  {/* <Link to="/register"></Link> */}
                  <button className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
-                 {/* <Link to="/register"></Link> */}
-                 <button className="button1"  onClick={()=>toggleRegistrationContainer()}>Register</button>
+             <button className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
+              
             
             </div>
 
-            <div id="login_container">
+            <div id="login_container" className="fade-in" >
                 <LoginForm cancelHandler={()=>toggleLoginContainer()}/>
             </div>
 
-            <div id="registration_container">
+            <div id="registration_container" className="fade-in" >
                 <RegistrationForm cancelHandler={()=>toggleRegistrationContainer()}/>
             </div>
 
 
-            <div class="more_info_container">
-                <span class="more_info">
+            </main>
+
+     
+           
+
+          <div className="more_info_container">
+                <span className="more_info">
                     <a href="#" onClick={() => fullpageApi.moveSectionDown()}>
                     What is bunny babble?
                     </a>
                 </span>
             </div>
-          
          
           </div>
           <div className="section">
