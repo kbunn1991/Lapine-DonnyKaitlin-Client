@@ -14,10 +14,10 @@ export default class Statslist extends React.Component{
         return (
             <ul className="score_list" aria-live="polite">
            {
-            this.props.wordList.map(word=>{
+            this.props.wordList.map((word,index)=>{
               
                 return (
-                <li className="board-list-item" key={word}  >
+                <li className="board-list-item" key={index}  >
                    {word.lapineWord} : {Math.floor(word.percentCorrect)} % 
                  
                 </li>

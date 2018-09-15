@@ -1,10 +1,11 @@
 // error validation
 
+
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import Input from './input';
-import {fetchAttempts,fetchCorrectCount, makeGuess, fetchHint} from '../actions/questions';
-import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import {makeGuess, fetchHint} from '../actions/questions';
+import {required, nonEmpty,isTrimmed} from '../validators';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import './css/guessForm.css';

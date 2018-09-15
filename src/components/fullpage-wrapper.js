@@ -23,7 +23,7 @@ const FullpageWrapper = (fullpageProps) => (
     {...fullpageProps}
     {...fullpageOptions}
     render={({ state, fullpageApi }) => {
-      console.log('render prop change', state); // eslint-disable-line no-console
+    //   console.log('render prop change', state); // eslint-disable-line no-console
       let element = document.getElementById("button_container");
       let element2 = document.getElementById("login_container");
       let element3 = document.getElementById("registration_container");
@@ -32,8 +32,8 @@ const FullpageWrapper = (fullpageProps) => (
 
     //Direct DOM manipulation here - not great, but was pushed for time so quick and dirty
      const toggleLoginContainer = ()=>{
-        console.log('hide');
-        console.log('PROPS',fullpageProps);
+        // console.log('hide');
+        // console.log('PROPS',fullpageProps);
         element.classList.toggle('hide');
         element2.classList.toggle('show');
       }
@@ -51,15 +51,15 @@ const FullpageWrapper = (fullpageProps) => (
 
       return (
         <div id="fullpage-wrapper">
-          <div className="section section1" title="bunny babble - Learn the bunny language!">
-          <main id="homepage-title" className="title center-both">
-             <header id="home-header" >
+          <div className="section section1" role="main" aria-labelledby="maintitle">
+          <div id="homepage-title" className="title center-both">
+             <div id="home-header" >
              <div id="left_side">
              <div id="bunny2" >
                     <img className="jump2" src="../../assets/bunny2.png" title= "bunny wunny" alt="bunny :3"/>
                     <img className="jump" src="../../assets/bunny1.png"  title= "bunny wunny"  alt="bunny cute" />
             </div>
-             <h1>bunny babble  </h1>
+             <h1 header role="banner" id="maintitle">bunny babble  </h1>
              <hr></hr>
             <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
              </div>
@@ -68,18 +68,18 @@ const FullpageWrapper = (fullpageProps) => (
              <div id="right_side">
              
                     <div id="button_container" >
-                        {/* <Link to="/register"></Link> */}
-                        <button title="Login button" className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
-                    <button title="Register button" className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
-                    
+                      
+                        <button aria-label="Register button" aria-describedby="Register Button"  title="Login" className="button1" onClick={()=>toggleLoginContainer()}>Login</button>
+                        <button aria-label="Register button" aria-describedby="Register Button" title="Register" className="button1" onClick={()=>toggleRegistrationContainer()}>Register</button>
+                        
                     
                     </div>
 
-                    <div id="login_container" className="fade-in" >
+                    <div role="form"  id="login_container" className="fade-in" >
                         <LoginForm cancelHandler={()=>toggleLoginContainer()}/>
                     </div>
 
-                    <div id="registration_container" className="fade-in" >
+                    <div role="form" id="registration_container" className="fade-in" >
                         <RegistrationForm cancelHandler={()=>toggleRegistrationContainer()}/>
                     </div>
 
@@ -88,25 +88,18 @@ const FullpageWrapper = (fullpageProps) => (
                       
             
                    
-              </header>
+              </div>
+
                     <div className="scroll_indicator">
                       <div className="hero__scroll">Scroll down</div>
                       </div>
 
-            </main>
+            </div>
 
                  <div className="scroll_indicator2">
                       <div className="hero__scroll">Scroll down</div>
                       </div>
            
-
-          {/* <div className="more_info_container">
-                <span className="more_info">
-                    <a href="#" onClick={() => fullpageApi.moveSectionDown()}>
-                  
-                    </a>
-                </span>
-            </div> */}
          
           </div>
           <div className="section">
@@ -142,17 +135,17 @@ const FullpageWrapper = (fullpageProps) => (
                 </div>
             </div>
           </div>
-          <div className="section">
-          <div className="info">
+          <footer className="section">
+                 <div className="info">
                     <h2>Created with Care.</h2>
                     <hr></hr>
                     <p>Bunny Babble was created by Kaitlin Bunn and Donny Cheng in one week as part of the Thinkful Engineering Immersion program.
                         No bunnies were harmed during the creation of this project. Feel free to contact us about any questions!
-
-                      
+                        <br/>
+                      <a  href="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client" title="Visit the Github" aria-label="Link Github" aria-describedby="Link Github">Visit the Github Repo</a>
                     </p>
                 </div>
-          </div>
+          </footer>
         </div>
       );
     }}

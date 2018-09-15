@@ -36,7 +36,7 @@ export class Stats extends React.Component {
     // least accurate word -- put up top -- lowest percentage of correct tries -- correct/attempts? x100
     // let leastSuccess = questions[0];
     let successArray = [];
-    let statTemplateBlock='';
+   
     let percentCorrect;
     for (let i = 0; i < questions.length; i++) {
       let currQuestion = questions[i];
@@ -56,9 +56,9 @@ export class Stats extends React.Component {
         lapineWord:lapineWord
       }
       successArray.push(tempObject);
-      let sortCounter = 0;
+      
  
-      successArray = successArray.sort((a,b) =>{ a.percentCorrect > b.percentCorrect}) ;
+      successArray = successArray.sort((a,b) =>{ return a.percentCorrect > b.percentCorrect}) ;
    
       // console.log('successArray',successArray);
  
@@ -73,7 +73,7 @@ export class Stats extends React.Component {
     let mostWord=null;
     let leastWord=null;
     if(mostObject !== undefined){
-    mostWord = successArray[0].lapineWord;
+    mostWord = successArray[successArray.length-1].lapineWord;
     // console.log('mostWord',mostWord);
     } else {
       mostWord = '____'
@@ -82,7 +82,7 @@ export class Stats extends React.Component {
 
 
     if(leastObject !== undefined){
-      leastWord = successArray[successArray.length-1].lapineWord;
+      leastWord = successArray[0].lapineWord;
       // console.log('mostWord',leastWord);
       }
 
@@ -98,7 +98,7 @@ export class Stats extends React.Component {
           <h1>{percent}% total accuracy</h1>
 
           <p>The word you know best: {mostWord} </p>      
-          <p>The word you struggle with most : {leastWord} </p>
+          <p>The word you struggle with most :  { leastWord} </p>
 
 
           <hr></hr>

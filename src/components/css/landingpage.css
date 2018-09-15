@@ -83,6 +83,10 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
     color: white;
     line-height: 180%;
 }
+
+.info a,a:visited,a:active{
+    color:yellow;
+}
   
 
 .more_info_container{
