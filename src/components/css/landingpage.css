@@ -1,13 +1,4 @@
 
-@font-face {
-    font-family: 'primus_scriptregular';
-    src: url('/assets/primusscript-webfont.woff2') format('woff2'),
-         url('/assets/primusscript-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 input,textarea{width:100%;display:block;margin-left: -13px;}
 
 .container {
@@ -117,7 +108,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 #left_side p{
     font-size: 20px;
     color: white;
-    font-weight: 800;
+    font-weight: bold;
     text-align: left;
 }
  
@@ -470,7 +461,7 @@ form{
     #left_side p {
         font-size: 18px;
         color: white;
-        font-weight: 800;
+        font-weight: bold;
         margin: 23px;
         text-align:center;
     }
