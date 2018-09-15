@@ -8,6 +8,10 @@ The deployed version of our app can be found here:
 
 **https://bunneh-client.herokuapp.com**
 
+Server-side repo:
+
+**https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Server**
+
 ## Screenshots
 
 `Wireframes`
