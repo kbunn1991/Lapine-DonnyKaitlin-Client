@@ -43,7 +43,7 @@ export class HeaderBar extends React.Component {
     
         if (window.location.pathname === '/stats') {
             stats = <Link to="/dashboard"><button onClick={e => {
-                console.log('Stats clicked!');
+                // console.log('Stats clicked!');
                 this.setState({
                     stats : true
                   });
@@ -51,7 +51,7 @@ export class HeaderBar extends React.Component {
             </button></Link>
         } else {
             stats = <Link to="/stats"><button onClick={e => {
-                console.log('Stats clicked!');
+                // console.log('Stats clicked!');
                 this.setState({
                     stats : false
                   });

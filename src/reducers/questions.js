@@ -32,7 +32,7 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     if (action.type === FETCH_QUESTION_SUCCESS) {
-        console.log('IT WAS SUCCESSFUL', action);
+        // console.log('IT WAS SUCCESSFUL', action);
         return Object.assign({}, state, {
             correctAnswer: '',
             question: action.question,
@@ -43,7 +43,7 @@ export default function reducer(state = initialState, action) {
             error: null
         });
     } else if (action.type === FETCH_QUESTION_ERROR) {
-        console.log('IT WAS AN ERROR', action);
+        // console.log('IT WAS AN ERROR', action);
         return Object.assign({}, state, {
             error: action.error
         });
@@ -64,7 +64,7 @@ export default function reducer(state = initialState, action) {
             error: action.error
         })   
     } else if (action.type === MAKE_GUESS_SUCCESS) {
-        console.log('THE GUESS WAS SUCCESSFUL', action);
+        // console.log('THE GUESS WAS SUCCESSFUL', action);
         return Object.assign({}, state, {
             correctAnswer: action.guess ? action.guess.answer : '',
             attempts: action.guess.attempts,
@@ -74,12 +74,12 @@ export default function reducer(state = initialState, action) {
             error: null
         })
     } else if (action.type === MAKE_GUESS_ERROR) {
-        console.log('THE GUESS WAS AN ERROR');
+        // console.log('THE GUESS WAS AN ERROR');
         return Object.assign({}, state, {
             error: action.error
         });    
     } else if (action.type === FETCH_ALL_QUESTIONS_SUCCESS) {
-        console.log('ACTION QUESTIONS FETCH',action.questions);
+        // console.log('ACTION QUESTIONS FETCH',action.questions);
         return Object.assign({}, state, {
             questions: action.questions
         })

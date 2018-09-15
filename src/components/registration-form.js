@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus,reset} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
@@ -9,7 +9,7 @@ const matchesPassword = matches('newpassword');
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
-        console.log('submit registration',values);
+        // console.log('submit registration',values);
         const {newusername, newpassword} = values;
         const user = {username : newusername, password : newpassword};
         return this.props

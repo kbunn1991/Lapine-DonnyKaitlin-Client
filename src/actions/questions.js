@@ -196,7 +196,7 @@ export const makeGuessError = error => ({
 })
 
 export const makeGuess = (guess) => (dispatch, getState) => {
-    console.log('MAKE GUESS ACTION',guess);
+    // console.log('MAKE GUESS ACTION',guess);
     const authToken = getState().auth.authToken;
 
     return fetch(`${API_BASE_URL}/questions`, {
@@ -212,11 +212,11 @@ export const makeGuess = (guess) => (dispatch, getState) => {
 
     .then(res => res.json()) // english word comes back
     .then((guess) =>{
-        console.log('GUEUSS MAKE',guess)
+        // console.log('GUEUSS MAKE',guess)
         dispatch(makeGuessSuccess(guess));
     }) 
     .catch(err => {
-        console.log('makeguessError',err);
+        // console.log('makeguessError',err);
         dispatch(makeGuessError(err));
     });
 }

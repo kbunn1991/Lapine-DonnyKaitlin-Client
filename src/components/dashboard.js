@@ -33,7 +33,7 @@ export class Dashboard extends React.Component {
             // console.log('show guess box value', this.props.showGuessBox);
             // console.log('Prev Word',this.props.prevQuestion.lapine );
             lapineWord = this.props.currentQuestion;
-            console.log(lapineWord);
+            // console.log(lapineWord);
         }
         let feedback;
         if (this.props.showFeedback) {
@@ -101,7 +101,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
+    // const {currentUser} = state.auth;
     return {
         username: state.auth.currentUser.username,
         attempts: state.questions.attempts,

@@ -14,14 +14,14 @@ import './css/guessForm.css';
 export class GuessForm extends React.Component {
 
     onSubmit(values) {
-       console.log('values',values)
+    //    console.log('values',values)
        return this.props.dispatch(makeGuess(values.guess))
              
     }
     
     render() {
 
-        let hintBoolean = false;
+        // let hintBoolean = false;
         let hint = "Guess";
        
         if(this.props.hint) {
@@ -54,7 +54,7 @@ export class GuessForm extends React.Component {
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
+    // const {currentUser} = state.auth;
     return {
         username: state.auth.currentUser.username,
         hint: state.questions.hint

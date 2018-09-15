@@ -19,7 +19,7 @@ export class Stats extends React.Component {
     //TODO!
 
     let questions = this.props.questions.questions;
-    console.log('username',this.props.username);
+    // console.log('username',this.props.username);
     // console.log(questions);
     let totAttempts = 0;
     let totCorrect = 0;
@@ -111,7 +111,7 @@ export class Stats extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const {currentUser} = state.auth;
+  // const {currentUser} = state.auth;
   return {
       username: state.auth.currentUser.username,
       attempts: state.questions.attempts,
