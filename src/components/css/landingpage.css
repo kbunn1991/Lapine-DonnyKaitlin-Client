@@ -312,6 +312,7 @@ form{
     .speech-bubble{
         margin-left: 300px;
         position: absolute;
+        margin-top:0px;
         width: 100px;
     }
     
