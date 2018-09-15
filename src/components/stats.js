@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchAllQuestions } from '../actions/questions';
+import StatsList from './statslist';
 import './css/stats.css';
 
 const sortByKey = (array, key) => {
@@ -11,21 +12,6 @@ const sortByKey = (array, key) => {
   });
 }
 
-// const compare = (a,b)=>{
-//    console('compare',a);
-//   const genreA = a.percentCorrect;
-//   const genreB = b.percentCorrect;
-  
-//   let comparison = 0;
-//   if (genreA > genreB) {
-//     comparison = 1;
-//   } else if (genreA < genreB) {
-//     comparison = -1;
-//   }
-//   return comparison;
-
-
-// }
 
 export class Stats extends React.Component {
   componentDidMount() {
@@ -54,6 +40,7 @@ export class Stats extends React.Component {
     // least accurate word -- put up top -- lowest percentage of correct tries -- correct/attempts? x100
     // let leastSuccess = questions[0];
     let successArray = [];
+    let statTemplateBlock='';
     let percentCorrect;
     for (let i = 0; i < questions.length; i++) {
       let currQuestion = questions[i];
@@ -73,32 +60,16 @@ export class Stats extends React.Component {
         lapineWord:lapineWord
       }
       successArray.push(tempObject);
-      successArray = successArray.sort((a,b) =>{return a.percentCorrect > b.percentCorrect}) ;
-       console.log('successArray',successArray);
+      let sortCounter = 0;
+ 
+      successArray = successArray.sort((a,b) =>{ a.percentCorrect > b.percentCorrect}) ;
+   
+      // console.log('successArray',successArray);
+ 
+      
     }
 
    
-
-    // loop through successArray to find the least successful 
-    // let leastSuccessful;
-    // for (let i = 0; i < successArray.length; i++) {
-    //   // loop through each item in the array
-    // }
-
-    // loop through successArray to find the most successful 
-    // let mostSuccessful = 0; 
-    // for (let i = 0; i < successArray.length; i++) {
-    //   // loop through each item in the array
-    //   if (successArray[i] > mostSuccessful) {
-    //     mostSuccessful = i;
-    //   }
-    // }
-    // // console.log(mostSuccessful);
-    
-    // let mostSuccessfulAnswer = questions[mostSuccessful];
-    // if(mostSuccessfulAnswer !== undefined){
-    // console.log('MOST SUCCESS',mostSuccessfulAnswer)
-    // };
 
    
     const mostObject = successArray[0];
@@ -106,7 +77,7 @@ export class Stats extends React.Component {
     let mostWord=null;
     let leastWord=null;
     if(mostObject !== undefined){
-    mostWord = successArray[successArray.length-1].lapineWord;
+    mostWord = successArray[0].lapineWord;
     console.log('mostWord',mostWord);
     } else {
       mostWord = '____'
@@ -115,7 +86,7 @@ export class Stats extends React.Component {
 
 
     if(leastObject !== undefined){
-      leastWord = successArray[0].lapineWord;
+      leastWord = successArray[successArray.length-1].lapineWord;
       console.log('mostWord',leastWord);
       }
 
@@ -132,6 +103,11 @@ export class Stats extends React.Component {
 
           <p>The word you know best: {mostWord} </p>      
           <p>The word you struggle with most : {leastWord} </p>
+
+
+          <hr></hr>
+          <p>All Words</p>
+          <StatsList wordList={successArray}/>
         </div>
       </div>
     )

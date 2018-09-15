@@ -51,7 +51,7 @@ export class Dashboard extends React.Component {
             guessBox = null;
         }
 
-        let img = <img src={this.props.imageURL}></img>
+        let img = <img src={this.props.imageURL} alt="A hint of bunneh"></img>
 
         return (
             <div className="dashCont">

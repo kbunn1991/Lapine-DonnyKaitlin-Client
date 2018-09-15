@@ -10,7 +10,7 @@
 }
 
 .stats .statsTitle {
-  margin-top: 15%;
+  margin-top: 50px;;
   width: 50%;
   margin-right: auto;
   margin-left: auto;
@@ -38,4 +38,14 @@
   margin: 20px;
   font-size:18px;
   font-weight: 800;
+}
+
+
+.statsDeets ul{
+list-style:none;
+}
+
+.statsDeets li{
+  font-size:30px;
+  line-height:180%;
 }

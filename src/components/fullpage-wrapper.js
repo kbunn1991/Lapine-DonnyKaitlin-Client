@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import ReactDOM from 'react-dom';
+
 import ReactFullpage from '@fullpage/react-fullpage';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import LoginForm from './login-form';
 import RegistrationForm from './registration-form';
 import './css/landingpage.css';
@@ -27,19 +27,19 @@ const FullpageWrapper = (fullpageProps) => (
       let element = document.getElementById("button_container");
       let element2 = document.getElementById("login_container");
       let element3 = document.getElementById("registration_container");
-      let titleElem = document.getElementById("homepage-title");
+    //   let titleElem = document.getElementById("homepage-title");
      
+
+    //Direct DOM manipulation here - not great, but was pushed for time so quick and dirty
      const toggleLoginContainer = ()=>{
         console.log('hide');
         console.log('PROPS',fullpageProps);
         element.classList.toggle('hide');
-      
         element2.classList.toggle('show');
       }
 
      const toggleRegistrationContainer =()=>{
         element.classList.toggle('hide');
-       
         element3.classList.toggle('show');
 
       }
@@ -54,7 +54,7 @@ const FullpageWrapper = (fullpageProps) => (
           <div className="section section1" title="bunny babble - Learn the bunny language!">
           <main id="homepage-title" className="title center-both">
              <header id="home-header" >
-             <banner id="left_side">
+             <div id="left_side">
              <div id="bunny2" >
                     <img className="jump2" src="../../assets/bunny2.png" title= "bunny wunny" alt="bunny :3"/>
                     <img className="jump" src="../../assets/bunny1.png"  title= "bunny wunny"  alt="bunny cute" />
@@ -62,7 +62,7 @@ const FullpageWrapper = (fullpageProps) => (
              <h1>bunny babble  </h1>
              <hr></hr>
             <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
-             </banner>
+             </div>
 
 
              <div id="right_side">
@@ -100,13 +100,13 @@ const FullpageWrapper = (fullpageProps) => (
                       </div>
            
 
-          <div className="more_info_container">
+          {/* <div className="more_info_container">
                 <span className="more_info">
                     <a href="#" onClick={() => fullpageApi.moveSectionDown()}>
                   
                     </a>
                 </span>
-            </div>
+            </div> */}
          
           </div>
           <div className="section">
