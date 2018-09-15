@@ -5,14 +5,6 @@ import { fetchAllQuestions } from '../actions/questions';
 import StatsList from './statslist';
 import './css/stats.css';
 
-const sortByKey = (array, key) => {
-  return array.sort(function(a, b) {
-      var x = a[key]; var y = b[key];
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-  });
-}
-
-
 export class Stats extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchAllQuestions());
@@ -20,8 +12,12 @@ export class Stats extends React.Component {
   }
 
   render() {
-    // percentage of total amount of correct answers over total number of attempts - percentage
-    // most accurate word
+   
+
+    //Currently calculators for the accuracy are done client size but it would make sense
+    //to move most of these to the client side at an endpoint or a couple
+    //TODO!
+
     let questions = this.props.questions.questions;
     console.log('username',this.props.username);
     // console.log(questions);
@@ -78,7 +74,7 @@ export class Stats extends React.Component {
     let leastWord=null;
     if(mostObject !== undefined){
     mostWord = successArray[0].lapineWord;
-    console.log('mostWord',mostWord);
+    // console.log('mostWord',mostWord);
     } else {
       mostWord = '____'
     }
@@ -87,7 +83,7 @@ export class Stats extends React.Component {
 
     if(leastObject !== undefined){
       leastWord = successArray[successArray.length-1].lapineWord;
-      console.log('mostWord',leastWord);
+      // console.log('mostWord',leastWord);
       }
 
     let percent = Math.floor((totCorrect/totAttempts)*100)
