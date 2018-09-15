@@ -59,7 +59,7 @@ const FullpageWrapper = (fullpageProps) => (
                     <img className="jump2" src="../../assets/bunny2.png" title= "bunny wunny" alt="bunny :3"/>
                     <img className="jump" src="../../assets/bunny1.png"  title= "bunny wunny"  alt="bunny cute" />
             </div>
-             <h1 header role="banner" id="maintitle">bunny babble  </h1>
+             <header><h1 id="maintitle">bunny babble  </h1></header>
              <hr></hr>
             <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
              </div>
