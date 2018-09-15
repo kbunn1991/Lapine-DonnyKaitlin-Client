@@ -15,6 +15,8 @@ The deployed version of our app can be found here:
 `Live App`
 <img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app2.png" width=100%>
 <img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app1.png" width=100%>
+<img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app4.png" width=100%>
+<img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app3.png" width=100%>
 
 ## Tech Stack
 
