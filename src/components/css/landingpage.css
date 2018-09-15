@@ -1,14 +1,19 @@
-
 @font-face {
-    font-family: 'primus_scriptregular';
-    src: url('/assets/primusscript-webfont.woff2') format('woff2'),
-         url('/assets/primusscript-webfont.woff') format('woff');
+    font-family: 'Museo500';
+    src: url('/assets/Museo500-Regular-webfont.woff2') format('woff2'),
+         url('/assets/Museo500-Regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
+h1,h2,h3,h4,h5{
+    font-family:'Museo500','Helvetica Neue','Arial','sans-serif';
+}
+
 input,textarea{width:100%;display:block;margin-left: -13px;}
+
+
 
 .container {
     overflow: hidden;
@@ -117,7 +122,7 @@ input,textarea{width:100%;display:block;margin-left: -13px;}
 #left_side p{
     font-size: 20px;
     color: white;
-    font-weight: 800;
+    font-weight: bold;
     text-align: left;
 }
  
@@ -235,27 +240,7 @@ form{
     text-align: center;
     margin-top: 10px;
 }
-/* .box {
 
-    opacity: 1.0;
-    box-sizing: border-box;
-    display:block;
-    transition: height 500ms 0ms, opacity 500ms 500ms;
-  }
-  
- .hide {
-    transition: height 500ms 500ms, opacity 500ms 0ms;
-    opacity: 0.0;
-    height: 0px;
-  }
-
-  .show {
-      display:block !important;
-
-   
-    opacity: 1.0 !important;
-
-  } */
 
 .registration-form .form_error{
     font-size:18px !important;
@@ -306,10 +291,34 @@ form{
 
     .scroll_indicator2{
         display:block;
+
+        
+    }
+
+    .speech-bubble{
+        margin-left: 150px;
+        margin-top:-60px;
+        position: absolute;
+        width: 60px;
+    }
+    
+    .speech-bubble img{
+        width:100% !important;
     }
 
 
   @media only screen and (min-width: 1500px) {
+
+    .speech-bubble{
+        margin-left: 300px;
+        position: absolute;
+        width: 100px;
+    }
+    
+    .speech-bubble img{
+        width:100% !important;
+    }
+
     .hero__scroll{
         margin: 0 -70px 0 0 !important;
         padding: 0 0 0 40px !important;
@@ -344,7 +353,7 @@ form{
 
     #login_container{
       
-            margin-top: 150px !important;
+            margin-top: 120px !important;
     }
 
     #button_container{
@@ -352,7 +361,7 @@ form{
     }
 
     #registration_container{
-        margin-top: 30%;
+        margin-top: 30px;
     }
 
     #login_container{
@@ -470,7 +479,7 @@ form{
     #left_side p {
         font-size: 18px;
         color: white;
-        font-weight: 800;
+        font-weight: bold;
         margin: 23px;
         text-align:center;
     }

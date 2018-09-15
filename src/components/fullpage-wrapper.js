@@ -56,12 +56,13 @@ const FullpageWrapper = (fullpageProps) => (
              <div id="home-header" >
              <div id="left_side">
              <div id="bunny2" >
+                      <div className="speech-bubble jump2" >  <img src="../../assets/speechbubble.png" /></div>
                     <img className="jump2" src="../../assets/bunny2.png" title= "bunny wunny" alt="bunny :3"/>
                     <img className="jump" src="../../assets/bunny1.png"  title= "bunny wunny"  alt="bunny cute" />
             </div>
              <header><h1 id="maintitle">bunny babble  </h1></header>
              <hr></hr>
-            <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
+                 <p>A simple learning app that introduces the user to Lapine, the bunny language</p> 
              </div>
 
 
