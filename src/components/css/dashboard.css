@@ -186,8 +186,14 @@ body{
   
 
   .word_container h3{
-    font-size:55px;
+    font-size:55px !important;
 
+  }
+
+  .guessButton{
+
+      font-size:18px !important;
+      margin-top:40px;
   }
 
   .testQuestion {
