@@ -88,8 +88,8 @@ export class Dashboard extends React.Component {
                  
             </div>
 
-            <div className="testQuestion">You've attempted this word: <b>{this.props.attempts} times</b> 
-                        <br />& Correctly answered: <b>{this.props.correctCount} times</b></div>
+            <div className="testQuestion">You've attempted this word <b>{this.props.attempts} times</b> 
+                        <br />You were correct <b>{this.props.correctCount} times</b></div>
 
 {/* <div class="object">
   hello world!
