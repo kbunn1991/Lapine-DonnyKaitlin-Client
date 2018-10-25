@@ -21,10 +21,10 @@ The spaced-repetition algorithm is implemented server-side via a singly linked l
 
 2)  When the user submits their answer, the answer connects to the backend API and hits a POST endpoint which then takes the submitted answer, compares it with the correct answer, adjusts the mValue and sets the head of our linked list to the the next value of our current node - which if you recall, each node is a question in our case.
 
-A full walk-through of implemented code is found below:
+A detailed and commented walk-through of implemented code is found below:
 
 ```
- //Local variables having to do with the position
+      //Local variables having to do with the position
       let currIndex = user.head;
       let question = user.questions[currIndex];
 
@@ -77,7 +77,8 @@ A full walk-through of implemented code is found below:
       //When the new position is reached, 
       //set the current nodes's next pointer value to the temporary node's next value
       //And the temporary next pointer's value to the original node's head
-      //this effectively inserts the original node at a new position M spaces away from where it was originally
+      //this effectively inserts the original node at a new position 
+      // M spaces away from where it was originally
     
       question.next = currNode.next;
       currNode.next = currIndex;
