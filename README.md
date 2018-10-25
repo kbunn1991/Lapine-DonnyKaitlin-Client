@@ -2,6 +2,7 @@
 
 **Bunny Babble** is a simple learning app that helps you learn Lapine, the language of the bunnies. Lapine was initially created in 1972 by the author Richard Adams for his novel 'Watership Down'. Through this app, you will learn vocabulary efficiently through the use of a spaced-repetition algorithm, which adjusts the frequency of individual vocabulary words based on your performance to help you learn as efficiently as possible. 
 
+<img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app2.png" width=100%>
 
 ## Deployed Version
 
@@ -87,7 +88,7 @@ A detailed and commented walk-through of implemented code is found below:
 ## Screenshots
 
 `Live App`
-<img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app2.png" width=100%>
+
 <img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app1.png" width=100%>
 <img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app4.png" width=100%>
 <img src="https://github.com/thinkful-ei22/Lapine-DonnyKaitlin-Client/blob/master/screenshots/app3.png" width=100%>
