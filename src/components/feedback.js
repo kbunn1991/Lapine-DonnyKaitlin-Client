@@ -30,7 +30,7 @@ export class Feedback extends React.Component {
         }
 
         return(
-            <div className="feedback">
+            <article className="feedback">
 
             <div className="message">{feedback}</div>
             {/* <p>Your answer is correct!</p>
@@ -38,7 +38,7 @@ export class Feedback extends React.Component {
              */}
             <button onClick={() => this.refreshInfo()}>Next Question</button>
 
-            </div>
+            </article>
 
         )
     }

@@ -14,7 +14,7 @@ export function LandingPage(props) {
     }
 
     return (
-        <div className="container">
+        <section className="container">
       
        
            {/* <div className="sliding-background"></div> */}
@@ -27,7 +27,7 @@ export function LandingPage(props) {
                 <Link to="/register">Register</Link>
             </div>
          
-        </div>
+        </section>
     );
 }
 

@@ -61,12 +61,12 @@ export class HeaderBar extends React.Component {
 
         // console.log(this.props);
         return (
-            <div className="header-bar">
+            <nav className="header-bar">
             <div className="buttons">
                     <div className="button">{logOutButton}</div>
                     <div className="button">{stats}</div>
             </div>
-            </div>
+            </nav>
         );
     }
 }

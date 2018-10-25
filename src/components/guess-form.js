@@ -29,7 +29,7 @@ export class GuessForm extends React.Component {
         }
 
         return (
-            <div className="guessForm">
+            <article className="guessForm">
                 <form autoComplete="off" onSubmit={this.props.handleSubmit(values => 
                 this.onSubmit(values)
                 )}>
@@ -48,7 +48,7 @@ export class GuessForm extends React.Component {
                     this.props.dispatch(fetchHint())
                 }}>Get a Hint</button>
                 </form>
-          </div>         
+          </article>         
         );
     }
 }

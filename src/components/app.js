@@ -48,13 +48,13 @@ export class App extends React.Component {
     render() {
         const currentPath = window.location.pathname;
         return (
-            <div className="app">
+            <main className="app">
                {currentPath ==='/dashboard' || currentPath ==='/stats' ? <HeaderBar /> : null}
                 <Route exact path="/" component={FullpageWrapper} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/stats" component={Stats} />
-            </div>
+            </main>
         );
     }
 }

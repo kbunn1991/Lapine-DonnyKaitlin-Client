@@ -91,7 +91,7 @@ export class Stats extends React.Component {
       percent = 100;
     }
     return (
-      <div className="stats statsCont">
+      <section className="stats statsCont">
         <div className="statsTitle">{this.props.username}'s Progress</div>
         <div className="statsDeets">
       
@@ -105,7 +105,7 @@ export class Stats extends React.Component {
           <p>All Words</p>
           <StatsList wordList={successArray}/>
         </div>
-      </div>
+      </section>
     )
   }
 }

@@ -54,7 +54,7 @@ export class Dashboard extends React.Component {
         let img = <img src={this.props.imageURL} alt="A hint of bunneh"></img>
 
         return (
-            <div className="dashCont">
+            <section className="dashCont">
             <div className="dashboard-username">
                 Hello, {this.props.username} !
             </div>
@@ -95,7 +95,7 @@ export class Dashboard extends React.Component {
   hello world!
 </div> */}
 
-            </div>
+            </section>
         );
     }
 }
